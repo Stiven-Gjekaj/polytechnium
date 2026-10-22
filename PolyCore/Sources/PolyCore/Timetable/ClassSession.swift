@@ -76,7 +76,36 @@ public struct Timetable: Codable, Hashable, Sendable {
     }
 
     /// The names of the courses, each one time, in the order of the alphabet.
+    ///
+    /// The timetable sometimes writes one course in two forms, such as
+    /// "Analiza Numerike" and "Analize Numerike". Two names with the same numbers
+    /// and no more than one other letter are one course, and the first name in
+    /// the alphabet stays.
     public var courses: [String] {
-        Array(Set(sessions.map(\.course))).sorted()
+        var names: [String] = []
+        for name in Array(Set(sessions.map(\.course))).sorted()
+        where !names.contains(where: { Self.isSameCourse($0, name) }) {
+            names.append(name)
+        }
+        return names
+    }
+
+    /// True for two names of one course with no more than one other letter.
+    static func isSameCourse(_ a: String, _ b: String) -> Bool {
+        let x = Array(CellText.fold(a)), y = Array(CellText.fold(b))
+        // "Fizika 1" and "Fizika 2" are two courses.
+        guard x.filter(\.isNumber) == y.filter(\.isNumber) else { return false }
+        guard min(x.count, y.count) >= 8, abs(x.count - y.count) <= 1 else { return x == y }
+        // The edit distance, with a stop after two changes.
+        var previous = Array(0...y.count)
+        for i in 1...x.count {
+            var current = [i] + Array(repeating: 0, count: y.count)
+            for j in 1...y.count {
+                current[j] = min(previous[j] + 1, current[j - 1] + 1, previous[j - 1] + (x[i - 1] == y[j - 1] ? 0 : 1))
+            }
+            if current.min()! > 1 { return false }
+            previous = current
+        }
+        return previous[y.count] <= 1
     }
 }
