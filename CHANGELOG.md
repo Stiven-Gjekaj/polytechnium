@@ -12,6 +12,11 @@ decisions.
 A tag such as `v0.1.0` builds the unsigned IPA and attaches it to a release on
 GitHub as `Polytechnium.ipa`.
 
+## 2.0.1 (2026-10-23)
+
+- A new icon: a hexagon with a P cut out of it. The counter of the P is four
+  cells of a timetable.
+
 ## 2.0.0 (2026-10-22)
 
 - The second full version, with the attendance, the quick links, and the
