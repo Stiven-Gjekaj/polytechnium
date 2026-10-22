@@ -68,6 +68,40 @@ final class AppModel {
         }
     }
 
+    /// Adds a course of the grades, or changes the course with the same identifier.
+    func save(_ course: CourseGrade) {
+        update { data in
+            if let index = data.courses.firstIndex(where: { $0.id == course.id }) {
+                data.courses[index] = course
+            } else {
+                data.courses.append(course)
+            }
+        }
+    }
+
+    func delete(_ course: CourseGrade) {
+        update { $0.courses.removeAll { $0.id == course.id } }
+    }
+
+    /// The courses of the timetable that are not in the grades yet.
+    var coursesToAdd: [String] {
+        let known = Set(data.courses.map { $0.name.lowercased() })
+        return (timetable?.courses ?? []).filter { !known.contains($0.lowercased()) }
+    }
+
+    /// Adds each course of the timetable to the grades, with a midterm and a final.
+    func addTimetableCourses() {
+        let names = coursesToAdd
+        update { data in
+            data.courses += names.map { name in
+                CourseGrade(name: name, credits: 0, components: [
+                    GradeComponent(name: tr("Midterm"), weight: 40),
+                    GradeComponent(name: tr("Final exam"), weight: 60),
+                ])
+            }
+        }
+    }
+
     /// Makes the week of today odd or even.
     func setThisWeek(_ parity: WeekParity) {
         update { $0.week = Week.with(parity, at: .now) }

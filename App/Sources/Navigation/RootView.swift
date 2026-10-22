@@ -10,6 +10,8 @@ struct RootView: View {
                 .tabItem { Label(tr("Today"), systemImage: "clock") }
             TimetableScreen()
                 .tabItem { Label(tr("Timetable"), systemImage: "calendar") }
+            GradesScreen()
+                .tabItem { Label(tr("Grades"), systemImage: "graduationcap") }
             SettingsScreen()
                 .tabItem { Label(tr("Settings"), systemImage: "gearshape") }
         }
