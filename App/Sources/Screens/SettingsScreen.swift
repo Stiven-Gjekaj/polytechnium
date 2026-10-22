@@ -32,6 +32,9 @@ struct SettingsScreen: View {
                         Text(WeekParity.odd.weekName).tag(WeekParity.odd)
                         Text(WeekParity.even.weekName).tag(WeekParity.even)
                     }
+                    Stepper(value: Binding(get: { app.data.weeks }, set: { weeks in app.update { $0.semesterWeeks = weeks } }), in: 1...30) {
+                        LabeledContent(tr("Weeks of classes"), value: String(app.data.weeks))
+                    }
                 } header: {
                     Text(tr("Weeks"))
                 } footer: {

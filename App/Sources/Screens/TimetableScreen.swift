@@ -23,6 +23,12 @@ struct TimetableScreen: View {
             .polyScreen()
             .navigationTitle(tr("Timetable"))
             .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
+                    NavigationLink { CoursesScreen() } label: {
+                        Image(systemName: "books.vertical")
+                            .accessibilityLabel(tr("Courses"))
+                    }
+                }
                 ToolbarItem(placement: .topBarTrailing) {
                     Menu {
                         Button(tr("Add a class"), systemImage: "plus") { editing = newSession() }

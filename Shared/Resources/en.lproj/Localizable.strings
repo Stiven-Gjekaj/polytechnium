@@ -3,6 +3,7 @@
 "%@ credits" = "%@ credits";
 "%@ of %@ points so far" = "%@ of %@ points so far";
 "%d classes" = "%d classes";
+"%d classes over the limit" = "%d classes over the limit";
 "%d h %d min left" = "%d h %d min left";
 "%d h left" = "%d h left";
 "%d min left" = "%d min left";
@@ -23,7 +24,9 @@
 "Add your courses with their credits and the weight of each part, such as the midterm, the labs, and the final." = "Add your courses with their credits and the weight of each part, such as the midterm, the labs, and the final.";
 "Add your lab reports and assignments. The app reminds you one day and two hours before each one." = "Add your lab reports and assignments. The app reminds you one day and two hours before each one.";
 "Assignment" = "Assignment";
+"At %d of %d classes" = "At %d of %d classes";
 "At 18:00 one week, three days, and one day before the exam." = "At 18:00 one week, three days, and one day before the exam.";
+"Attendance" = "Attendance";
 "Average" = "Average";
 "Backup" = "Backup";
 "Cancel" = "Cancel";
@@ -77,11 +80,14 @@
 "Groups" = "Groups";
 "Handed in" = "Handed in";
 "Hide the font license" = "Hide the font license";
+"I missed it" = "I missed it";
+"I was there" = "I was there";
 "Import a PDF" = "Import a PDF";
 "Import a timetable" = "Import a timetable";
 "Import the timetable PDF of the faculty, or add your classes one by one." = "Import the timetable PDF of the faculty, or add your classes one by one.";
 "Import your timetable in the Timetable tab. Then this screen shows your next class." = "Import your timetable in the Timetable tab. Then this screen shows your next class.";
 "Import your timetable in the app." = "Import your timetable in the app.";
+"Import your timetable or add a course in Grades. Each course then has a page here." = "Import your timetable or add a course in Grades. Each course then has a page here.";
 "In %d days" = "In %d days";
 "Kind" = "Kind";
 "Lab" = "Lab";
@@ -96,9 +102,12 @@
 "Lecturer" = "Lecturer";
 "Licenses" = "Licenses";
 "Look at the classes. You can change each class after you save." = "Look at the classes. You can change each class after you save.";
+"Mark a class" = "Mark a class";
 "Mark as handed in" = "Mark as handed in";
 "Mark as not handed in" = "Mark as not handed in";
+"Marks" = "Marks";
 "Midterm" = "Midterm";
+"Missed" = "Missed";
 "My classes" = "My classes";
 "Name" = "Name";
 "Next" = "Next";
@@ -108,6 +117,7 @@
 "No class soon" = "No class soon";
 "No classes on this day." = "No classes on this day.";
 "No exam to come." = "No exam to come.";
+"No marks yet" = "No marks yet";
 "No timetable" = "No timetable";
 "Not done" = "Not done";
 "Not on this week" = "Not on this week";
@@ -130,6 +140,7 @@
 "Reminders are on" = "Reminders are on";
 "Replace" = "Replace";
 "Replace your timetable?" = "Replace your timetable?";
+"Required" = "Required";
 "Restore" = "Restore";
 "Restore a backup" = "Restore a backup";
 "Restore the backup?" = "Restore the backup?";
@@ -144,6 +155,7 @@
 "Source code on GitHub" = "Source code on GitHub";
 "Start" = "Start";
 "Support the project on Ko-fi" = "Support the project on Ko-fi";
+"The app counts %d classes of this course in %d weeks, from the timetable." = "The app counts %d classes of this course in %d weeks, from the timetable.";
 "The backup is one file with your timetable, grades, exams, and deadlines. Keep it in Files or in iCloud Drive." = "The backup is one file with your timetable, grades, exams, and deadlines. Keep it in Files or in iCloud Drive.";
 "The class that is on now, or your next class, with the room and the time." = "The class that is on now, or your next class, with the room and the time.";
 "The classes of this group take the place of your classes, also of the classes that you changed." = "The classes of this group take the place of your classes, also of the classes that you changed.";
@@ -151,6 +163,7 @@
 "The data file cannot be read: %@" = "The data file cannot be read: %@";
 "The data file cannot be written: %@" = "The data file cannot be written: %@";
 "The data of the backup takes the place of all data in the app." = "The data of the backup takes the place of all data in the app.";
+"The timetable has no class of this course." = "The timetable has no class of this course.";
 "The timetable writes tek for the odd weeks and cift for the even weeks. Choose the kind of this week, and the app counts the next weeks." = "The timetable writes tek for the odd weeks and cift for the even weeks. Choose the kind of this week, and the app counts the next weeks.";
 "The weights give %@%%, not 100%%. The app counts each part in its share." = "The weights give %@%%, not 100%%. The app counts each part in its share.";
 "The weights give 100%." = "The weights give 100%.";
@@ -170,10 +183,15 @@
 "Tomorrow, %@" = "Tomorrow, %@";
 "Version" = "Version";
 "Version %@ is available" = "Version %@ is available";
+"Was there" = "Was there";
 "Weeks" = "Weeks";
+"Weeks of classes" = "Weeks of classes";
 "Weight %" = "Weight %";
 "Weighted by %@ credits of passed courses" = "Weighted by %@ credits of passed courses";
 "What if" = "What if";
+"You can miss %d more classes." = "You can miss %d more classes.";
+"You can miss 1 more class." = "You can miss 1 more class.";
+"You cannot miss another class." = "You cannot miss another class.";
 "You need %@ points on %@." = "You need %@ points on %@.";
 "You need %@ points on average on %@." = "You need %@ points on average on %@.";
 "Your points give a %d already." = "Your points give a %d already.";

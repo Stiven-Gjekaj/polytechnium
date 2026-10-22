@@ -159,6 +159,20 @@ final class AppModel {
         return names.sorted()
     }
 
+    /// Marks one class of a course as attended or missed.
+    func mark(_ course: String, kind: SessionKind, on date: Date, present: Bool) {
+        update { $0.attendance.append(AttendanceMark(course: course, date: date, kind: kind, present: present)) }
+    }
+
+    func delete(_ mark: AttendanceMark) {
+        update { $0.attendance.removeAll { $0.id == mark.id } }
+    }
+
+    /// Sets the part of the classes of a course that the student must be at.
+    func setRequired(_ percent: Double, for course: String) {
+        update { $0.requiredAttendance[course] = percent }
+    }
+
     /// Puts the data of a backup in the place of all data.
     func restore(_ backup: AppData) {
         update { $0 = backup }
