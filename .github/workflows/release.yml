@@ -1,0 +1,31 @@
+name: Release
+
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: write
+
+jobs:
+  ipa:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install XcodeGen
+        run: brew install xcodegen
+      - name: Check the English and the Albanian text
+        run: python3 scripts/strings.py --check
+      - name: Test the core package
+        run: swift test --package-path PolyCore
+      - name: Test the core package in a release build
+        run: swift test -c release --package-path PolyCore
+      - name: Build the IPA
+        run: ./scripts/build-ipa.sh
+      - name: Attach the IPA to the release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "$GITHUB_REF_NAME" build/Polytechnium.ipa \
+            --title "Polytechnium $GITHUB_REF_NAME" \
+            --notes "See CHANGELOG.md. The IPA is not signed. Sign and install it with AltStore, SideStore, Sideloadly, or TrollStore. The newest IPA is always at https://github.com/${{ github.repository }}/releases/latest/download/Polytechnium.ipa"
