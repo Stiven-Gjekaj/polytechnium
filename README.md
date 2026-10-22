@@ -31,7 +31,8 @@ _For the students of FTI, with the timetable from the PDF of the faculty_
 Polytechnic University of Tirana (UPT). It reads the timetable PDF of the
 Faculty of Information Technology and keeps the classes of your group, such
 as II-A-ELN. It shows your current and next class, on Today and in a widget,
-and keeps your grades, your exams, and your deadlines. It is not an app of the
+and keeps your grades, your exams, your deadlines, your attendance, the
+links of each course, and a study plan. It is not an app of the
 university.
 
 The app has the text in English and in Albanian. Your data stays on your
@@ -58,7 +59,10 @@ device.
 - Coming up on Today: the next exam and the deadlines of the next 7 days
 - Attendance: mark each class, and see the classes that you can still miss
 - Quick links: the notes, the PDFs, and the lab sheets of each course
-- Study planner: the revision of each exam, spread over the days before it
+- Study planner: the revision of each exam, spread over the days before it,
+  with a reminder at 17:00
+- Today asks about the attendance of each class that is over, and shows the
+  revision of the day
 - Back up and restore all data in one file
 - The app tells you when a newer version is available
 - English or Albanian, or the language of the device

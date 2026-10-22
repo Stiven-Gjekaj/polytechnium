@@ -262,3 +262,21 @@ replaces an old one names the old one.
   today and the next days spreads the rest again each day.
 - Reason: an exam that comes first needs its revision first. A plan that
   changes with the hours that are done stays true when a day goes wrong.
+
+## 2026-10-22: Form 2 of the data
+
+- 2.0.0 writes the data in form 2. Form 2 has the attendance, the quick
+  links, and the study plan.
+- The app reads the data of form 1 into form 2. A backup of form 2 does not
+  restore in an app of form 1.
+- Reason: an app of form 1 does not know the new parts. A restore there would
+  lose them with no word. This change raises the major number.
+
+## 2026-10-22: Today joins the functions
+
+- Today asks about the attendance of each class of the day that is over and
+  has no mark of the same course, kind, and day.
+- Today shows the revision of the day from the study plan.
+- The revision of each day of the plan has a reminder at 17:00.
+- Reason: Today is the screen that the student opens each day. A question at
+  the end of the day is faster than a visit to the page of each course.

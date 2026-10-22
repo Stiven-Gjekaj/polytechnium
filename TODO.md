@@ -14,8 +14,4 @@ release is out. The reason for each choice is in
   - The Next class widget on the lock screen.
   - A reminder of an exam and of a deadline at its time.
   - The import of the timetable PDF from the Files app.
-
-## 2.0.0
-
-- Today joins the functions: the revision of today, and a question about the
-  attendance of each class that is over.
+  - The reminder of the revision of a day.

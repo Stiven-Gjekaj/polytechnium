@@ -5,11 +5,25 @@
 # Changelog
 
 Every release is written here, newest first. A version is `MAJOR.MINOR.PATCH`.
-Each release before 1.0.0 adds one large function. See "Version numbers" in
-the decisions.
+Each release before 1.0.0, and each release from 1.1.0 to 1.3.0, adds one
+large function. See "Version numbers" and "Releases after 1.0.0" in the
+decisions.
 
 A tag such as `v0.1.0` builds the unsigned IPA and attaches it to a release on
 GitHub as `Polytechnium.ipa`.
+
+## 2.0.0 (2026-10-22)
+
+- The second full version, with the attendance, the quick links, and the
+  study planner of 1.1.0, 1.2.0, and 1.3.0.
+- Today asks "Were you there?" for each class of the day that is over and
+  has no mark. A check or a cross marks the attendance.
+- Today shows the revision of the day from the study plan, with a check for
+  each block.
+- Reminds you at 17:00 of the revision of each day of the plan.
+- The data is in form 2. A backup of 2.0.0 does not restore in 1.x, so that
+  the attendance, the links, and the plan do not go. A backup of 1.x
+  restores in 2.0.0.
 
 ## 1.3.0 (2026-10-22)
 
