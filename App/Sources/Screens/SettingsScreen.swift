@@ -8,6 +8,7 @@ struct SettingsScreen: View {
     @State private var importing = false
     @State private var confirmClear = false
     @State private var showFontLicense = false
+    @State private var newer: String?
 
     var body: some View {
         @Bindable var app = app
@@ -42,6 +43,12 @@ struct SettingsScreen: View {
                     }
                 }
                 Section {
+                    if let newer {
+                        Link(destination: URL(string: AppInfo.repository + "/releases/latest")!) {
+                            Label(tr("Version %@ is available", newer), systemImage: "arrow.down.circle")
+                        }
+                        .font(Karla.font(16, .bold))
+                    }
                     Link(destination: URL(string: AppInfo.kofi)!) {
                         Label(tr("Support the project on Ko-fi"), systemImage: "cup.and.saucer")
                     }
@@ -52,7 +59,7 @@ struct SettingsScreen: View {
                 } header: {
                     Text(tr("About"))
                 } footer: {
-                    Text(tr("Polytechnium is for the students of the Polytechnic University of Tirana. It is not an app of the university. Your data stays on this device."))
+                    Text(tr("Polytechnium is for the students of the Polytechnic University of Tirana. It is not an app of the university. Your data stays on this device. The app asks GitHub for the newest version."))
                 }
                 Section(tr("Licenses")) {
                     Text(tr("The code is under the MIT License. Karla, the font of the app, is under the SIL Open Font License, Version 1.1."))
@@ -78,6 +85,7 @@ struct SettingsScreen: View {
                 }
             }
             .sheet(isPresented: $importing) { ImportScreen() }
+            .task { newer = await UpdateCheck.newerVersion() }
             .confirmationDialog(tr("Delete the timetable?"), isPresented: $confirmClear, titleVisibility: .visible) {
                 Button(tr("Delete"), role: .destructive) { app.update { $0.timetable = nil } }
             }

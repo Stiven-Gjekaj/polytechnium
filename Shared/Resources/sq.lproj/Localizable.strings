@@ -43,7 +43,7 @@
 "Odd week" = "Javë tek";
 "Odd weeks" = "Javët tek";
 "Place" = "Vendi";
-"Polytechnium is for the students of the Polytechnic University of Tirana. It is not an app of the university. Your data stays on this device." = "Polytechnium është për studentët e Universitetit Politeknik të Tiranës. Nuk është aplikacion i universitetit. Të dhënat e tua mbeten në këtë pajisje.";
+"Polytechnium is for the students of the Polytechnic University of Tirana. It is not an app of the university. Your data stays on this device. The app asks GitHub for the newest version." = "Polytechnium është për studentët e Universitetit Politeknik të Tiranës. Nuk është aplikacion i universitetit. Të dhënat e tua mbeten në këtë pajisje. Aplikacioni pyet GitHub për versionin më të ri.";
 "Reading the timetable" = "Po lexohet orari";
 "Replace" = "Zëvendëso";
 "Replace your timetable?" = "Të zëvendësohet orari yt?";
@@ -172,4 +172,5 @@
 "Due tomorrow: %@" = "Afati nesër: %@";
 "Due in %d hours: %@" = "Afati pas %d orësh: %@";
 "Tomorrow" = "Nesër";
+"Version %@ is available" = "Versioni %@ është i disponueshëm";
 "Coming up" = "Së shpejti";
