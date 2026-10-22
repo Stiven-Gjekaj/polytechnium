@@ -91,7 +91,7 @@ public struct Timetable: Codable, Hashable, Sendable {
     }
 
     /// True for two names of one course with no more than one other letter.
-    static func isSameCourse(_ a: String, _ b: String) -> Bool {
+    public static func isSameCourse(_ a: String, _ b: String) -> Bool {
         let x = Array(CellText.fold(a)), y = Array(CellText.fold(b))
         // "Fizika 1" and "Fizika 2" are two courses.
         guard x.filter(\.isNumber) == y.filter(\.isNumber) else { return false }

@@ -153,7 +153,7 @@ final class AppModel {
     /// The names of the courses of the timetable and of the grades, for a choice.
     var courseNames: [String] {
         var names = timetable?.courses ?? []
-        for course in data.courses.map(\.name) where !names.contains(course) {
+        for course in data.courses.map(\.name) where !names.contains(where: { Timetable.isSameCourse($0, course) }) {
             names.append(course)
         }
         return names.sorted()
