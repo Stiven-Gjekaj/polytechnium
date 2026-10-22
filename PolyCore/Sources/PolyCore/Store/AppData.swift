@@ -14,6 +14,7 @@ public struct AppData: Codable, Hashable, Sendable {
     public var exams: [Exam] = []
     public var deadlines: [Deadline] = []
     public var attendance: [AttendanceMark] = []
+    public var links: [CourseLink] = []
     /// The part of the classes that the student must be at, in percent, for each course.
     public var requiredAttendance: [String: Double] = [:]
     /// The weeks of classes in the semester. Nil is 15.
@@ -44,7 +45,7 @@ public struct AppData: Codable, Hashable, Sendable {
     }
 
     enum CodingKeys: String, CodingKey {
-        case version, timetable, week, courses, scale, exams, deadlines, attendance, requiredAttendance, semesterWeeks
+        case version, timetable, week, courses, scale, exams, deadlines, attendance, requiredAttendance, semesterWeeks, links
     }
 
     public init(from decoder: Decoder) throws {
@@ -59,6 +60,7 @@ public struct AppData: Codable, Hashable, Sendable {
         attendance = try container.decodeIfPresent([AttendanceMark].self, forKey: .attendance) ?? []
         requiredAttendance = try container.decodeIfPresent([String: Double].self, forKey: .requiredAttendance) ?? [:]
         semesterWeeks = try container.decodeIfPresent(Int.self, forKey: .semesterWeeks)
+        links = try container.decodeIfPresent([CourseLink].self, forKey: .links) ?? []
     }
 }
 
