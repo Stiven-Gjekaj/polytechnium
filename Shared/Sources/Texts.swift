@@ -65,3 +65,31 @@ enum Weekdays {
         return name.prefix(1).uppercased() + name.dropFirst()
     }
 }
+
+enum Countdown {
+    /// "in 25 min" or "in 2 h 10 min", for a time on the same day.
+    static func until(_ date: Date, from now: Date) -> String {
+        let minutes = max(0, Int((date.timeIntervalSince(now) / 60).rounded(.up)))
+        if minutes < 60 { return tr("in %d min", minutes) }
+        let hours = minutes / 60, rest = minutes % 60
+        return rest == 0 ? tr("in %d h", hours) : tr("in %d h %d min", hours, rest)
+    }
+
+    /// "25 min left" or "1 h 5 min left".
+    static func left(_ date: Date, from now: Date) -> String {
+        let minutes = max(0, Int((date.timeIntervalSince(now) / 60).rounded(.up)))
+        if minutes < 60 { return tr("%d min left", minutes) }
+        let hours = minutes / 60, rest = minutes % 60
+        return rest == 0 ? tr("%d h left", hours) : tr("%d h %d min left", hours, rest)
+    }
+
+    /// The time of a class: "in 25 min" today, "Tomorrow, 08:00", or "Monday, 08:00".
+    static func when(_ date: Date, from now: Date) -> String {
+        let calendar = L10n.calendar
+        if calendar.isDate(date, inSameDayAs: now) { return until(date, from: now) }
+        if let tomorrow = calendar.date(byAdding: .day, value: 1, to: now), calendar.isDate(date, inSameDayAs: tomorrow) {
+            return tr("Tomorrow, %@", Clock.text(date))
+        }
+        return "\(Weekdays.name(Week.weekday(of: date, calendar: calendar))), \(Clock.text(date))"
+    }
+}

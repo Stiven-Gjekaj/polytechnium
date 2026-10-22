@@ -1,6 +1,9 @@
 /* Written by scripts/strings.py from the keys in the code. Do not edit. */
 
 "%d classes" = "%d classes";
+"%d h %d min left" = "%d h %d min left";
+"%d h left" = "%d h left";
+"%d min left" = "%d min left";
 "About" = "About";
 "Add" = "Add";
 "Add a class" = "Add a class";
@@ -28,17 +31,23 @@
 "Import a PDF" = "Import a PDF";
 "Import a timetable" = "Import a timetable";
 "Import the timetable PDF of the faculty, or add your classes one by one." = "Import the timetable PDF of the faculty, or add your classes one by one.";
+"Import your timetable in the Timetable tab. Then this screen shows your next class." = "Import your timetable in the Timetable tab. Then this screen shows your next class.";
 "Kind" = "Kind";
 "Lab" = "Lab";
 "Language" = "Language";
 "Language of the device" = "Language of the device";
+"Later today" = "Later today";
 "Lecture" = "Lecture";
 "Lecturer" = "Lecturer";
 "Licenses" = "Licenses";
 "Look at the classes. You can change each class after you save." = "Look at the classes. You can change each class after you save.";
 "My classes" = "My classes";
+"Next" = "Next";
+"No class in the next two weeks." = "No class in the next two weeks.";
+"No class now." = "No class now.";
 "No classes on this day." = "No classes on this day.";
 "Not on this week" = "Not on this week";
+"Now" = "Now";
 "OK" = "OK";
 "Odd week" = "Odd week";
 "Odd weeks" = "Odd weeks";
@@ -66,6 +75,12 @@
 "This week" = "This week";
 "This week: %@" = "This week: %@";
 "Time" = "Time";
+"Time of the class that is over" = "Time of the class that is over";
 "Timetable" = "Timetable";
+"Today" = "Today";
+"Tomorrow, %@" = "Tomorrow, %@";
 "Version" = "Version";
 "Weeks" = "Weeks";
+"in %d h" = "in %d h";
+"in %d h %d min" = "in %d h %d min";
+"in %d min" = "in %d min";
