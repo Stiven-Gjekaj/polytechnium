@@ -170,6 +170,7 @@
 "Source code on GitHub" = "Source code on GitHub";
 "Start" = "Start";
 "Study plan" = "Study plan";
+"Study today" = "Study today";
 "Support the project on Ko-fi" = "Support the project on Ko-fi";
 "The app counts %d classes of this course in %d weeks, from the timetable." = "The app counts %d classes of this course in %d weeks, from the timetable.";
 "The backup is one file with your timetable, grades, exams, and deadlines. Keep it in Files or in iCloud Drive." = "The backup is one file with your timetable, grades, exams, and deadlines. Keep it in Files or in iCloud Drive.";
@@ -207,6 +208,7 @@
 "Weeks of classes" = "Weeks of classes";
 "Weight %" = "Weight %";
 "Weighted by %@ credits of passed courses" = "Weighted by %@ credits of passed courses";
+"Were you there?" = "Were you there?";
 "What if" = "What if";
 "You can miss %d more classes." = "You can miss %d more classes.";
 "You can miss 1 more class." = "You can miss 1 more class.";

@@ -66,9 +66,62 @@ struct TodayScreen: View {
                         .padding(.top, 6)
                     ForEach(today.later) { ClassRow(session: $0.session) }
                 }
+                attendanceQuestion(now: now)
+                studyToday(now: now)
                 comingUp(now: now)
             }
             .padding(gutter)
+        }
+    }
+
+    /// A question for each class of today that is over and has no mark of attendance.
+    @ViewBuilder
+    private func attendanceQuestion(now: Date) -> some View {
+        let ended = app.data.unmarked(on: now)
+        if !ended.isEmpty {
+            SectionTitle(text: tr("Were you there?"))
+                .padding(.top, 6)
+            ForEach(ended) { occurrence in
+                HStack(spacing: 10) {
+                    VStack(alignment: .leading, spacing: 2) {
+                        Text(occurrence.session.course)
+                            .font(Karla.font(15, .bold))
+                        Text("\(occurrence.session.kind.name)  ·  \(Clock.range(occurrence.session.start, occurrence.session.end))")
+                            .font(Karla.font(13))
+                            .foregroundStyle(Palette.textSecondary)
+                    }
+                    Spacer(minLength: 4)
+                    Button { mark(occurrence, present: true) } label: {
+                        Image(systemName: "checkmark")
+                    }
+                    .buttonStyle(.polyPrimary)
+                    .accessibilityLabel(tr("I was there"))
+                    Button { mark(occurrence, present: false) } label: {
+                        Image(systemName: "xmark")
+                    }
+                    .buttonStyle(.polySecondary)
+                    .accessibilityLabel(tr("I missed it"))
+                }
+                .card()
+            }
+        }
+    }
+
+    private func mark(_ occurrence: Occurrence, present: Bool) {
+        app.mark(occurrence.session.course, kind: occurrence.session.kind, on: occurrence.start, present: present)
+    }
+
+    /// The revision of today, from the study plan.
+    @ViewBuilder
+    private func studyToday(now: Date) -> some View {
+        let blocks = app.data.studyPlan(at: now).blocks(on: now)
+        if !blocks.isEmpty {
+            SectionTitle(text: tr("Study today"))
+                .padding(.top, 6)
+            VStack(spacing: 10) {
+                ForEach(blocks) { StudyRow(block: $0) }
+            }
+            .card()
         }
     }
 
