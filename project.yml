@@ -14,6 +14,10 @@ settings:
     CODE_SIGN_IDENTITY: ""
     CODE_SIGNING_REQUIRED: "NO"
     CODE_SIGNING_ALLOWED: "NO"
+    # A simulator build signs with no identity, so that the app and the widgets
+    # share the app group there too.
+    CODE_SIGNING_ALLOWED[sdk=iphonesimulator*]: "YES"
+    CODE_SIGN_IDENTITY[sdk=iphonesimulator*]: "-"
 packages:
   PolyCore:
     path: PolyCore
@@ -28,6 +32,7 @@ targets:
       - Shared/Resources
     dependencies:
       - package: PolyCore
+      - target: PolytechniumWidgets
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: io.github.stivengjekaj.polytechnium
@@ -44,6 +49,27 @@ targets:
           STRIP_INSTALLED_PRODUCT: "YES"
           STRIP_STYLE: all
           DEAD_CODE_STRIPPING: "YES"
+  PolytechniumWidgets:
+    type: app-extension
+    platform: iOS
+    sources:
+      - Widgets/Sources
+      - Shared/Sources
+      - Shared/Resources
+      - path: App/Resources/Fonts/Karla.ttf
+        buildPhase: resources
+    dependencies:
+      - package: PolyCore
+      - sdk: WidgetKit.framework
+      - sdk: SwiftUI.framework
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: io.github.stivengjekaj.polytechnium.widgets
+        TARGETED_DEVICE_FAMILY: "1,2"
+        GENERATE_INFOPLIST_FILE: "NO"
+        INFOPLIST_FILE: Widgets/Info.plist
+        CODE_SIGN_ENTITLEMENTS: Widgets/Widgets.entitlements
+        SKIP_INSTALL: "YES"
 schemes:
   Polytechnium:
     build:

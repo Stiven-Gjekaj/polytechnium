@@ -84,3 +84,10 @@
 "No class in the next two weeks." = "Nuk ka orë në dy javët e ardhshme.";
 "Later today" = "Më vonë sot";
 "Time of the class that is over" = "Koha e orës që ka kaluar";
+"Next class" = "Ora e radhës";
+"The class that is on now, or your next class, with the room and the time." = "Ora që po zhvillohet tani, ose ora jote e radhës, me sallën dhe orarin.";
+"No timetable" = "Nuk ka orar";
+"No class soon" = "Nuk ka orë së shpejti";
+"Then" = "Pastaj";
+"Import your timetable in the app." = "Importo orarin në aplikacion.";
+"until %@" = "deri në %@";
