@@ -30,7 +30,9 @@ _For the students of FTI, with the timetable from the PDF of the faculty_
 **Polytechnium** is an iPhone and iPad app for the students of the
 Polytechnic University of Tirana (UPT). It reads the timetable PDF of the
 Faculty of Information Technology and keeps the classes of your group, such
-as II-A-ELN. It is not an app of the university.
+as II-A-ELN. It shows your current and next class, on Today and in a widget,
+and keeps your grades, your exams, and your deadlines. It is not an app of the
+university.
 
 The app has the text in English and in Albanian. Your data stays on your
 device.
@@ -53,9 +55,12 @@ device.
   three days, and one day before
 - Deadlines: lab reports and assignments, with reminders one day and two
   hours before
+- Coming up on Today: the next exam and the deadlines of the next 7 days
+- Back up and restore all data in one file
+- The app tells you when a newer version is available
 - English or Albanian, or the language of the device
 
-See [TODO.md](TODO.md) for the next releases.
+See [TODO.md](TODO.md) for the next functions.
 
 ## Install
 
@@ -146,7 +151,8 @@ python3 scripts/strings.py --check
 ```
 
 The unit tests of the core package cover the reader of the timetable PDF, the
-weeks, and the data file. The tests of the reader draw a small timetable into
+weeks, Today, the grades, the reminders of the exams and the deadlines, the
+backup, and the data file. The tests of the reader draw a small timetable into
 a PDF in the test. When a copy of the real timetable is at
 `private/Orari-Bachelor-4.pdf`, one more test reads it. The `private/` folder
 is not in the repository. The text check makes sure that each English text

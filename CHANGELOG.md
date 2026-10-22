@@ -11,6 +11,16 @@ the decisions.
 A tag such as `v0.1.0` builds the unsigned IPA and attaches it to a release on
 GitHub as `Polytechnium.ipa`.
 
+## 1.0.0 (2026-10-22)
+
+- The first full version, with the timetable, Today, the widget, the grades,
+  the exams, and the deadlines.
+- Today also shows the next exam in the next 30 days and the deadlines of
+  the next 7 days. A check on Today marks a deadline as handed in.
+- Saves a backup of all data in one file, and restores it. A backup of a
+  newer version of the app does not restore, so that no data goes.
+- Settings tells you when a newer version is on GitHub, with a link.
+
 ## 0.6.0 (2026-10-22)
 
 - Adds the Deadlines screen for lab reports and assignments. Each deadline

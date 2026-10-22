@@ -185,3 +185,36 @@ replaces an old one names the old one.
 - Settings opens from the gear button at the top of Today.
 - Reason: on an iPhone, a sixth tab goes behind a "More" tab. Settings is the
   screen that a user opens least.
+
+## 2026-10-22: The backup
+
+- The backup is the data file, in one JSON file that the user saves with the
+  Files app.
+- A restore puts the data of the backup in the place of all data, after a
+  question.
+- A backup with a form newer than the app does not restore.
+- Reason: the data stays on the device, so the user needs a way to move it to
+  a new phone. A restore of a newer form would lose the parts that the older
+  app does not know.
+
+## 2026-10-22: The check for a newer version
+
+- Settings asks the GitHub API for the newest release of the app. When it is
+  newer, Settings shows its version with a link to the release.
+- The app does not install the update. SideStore or AltStore gets it from the
+  source.
+- Reason: the same function as ZettaStream for iOS. A sideloaded app has no
+  App Store to tell of an update.
+
+## 2026-10-22: What 1.0.0 has
+
+- 1.0.0 has the import, the timetable, Today, the widget, the grades, the
+  exams, and the deadlines, with a backup and a check for a newer version.
+- The checks of the simulator cover each screen in English and in Albanian,
+  the import of the real timetable, the widget on the home screen, the
+  backup and the restore, and the question for notifications.
+- These checks need a real iPhone and are in the roadmap: the widget on the
+  lock screen, a notification at its time, and the import of a PDF from the
+  Files app.
+- Reason: the owner asked for 1.0.0 with all the functions of the first list.
+  The second list comes after 1.0.0.
