@@ -152,3 +152,5 @@
 "Delete the exam" = "Fshi provimin";
 "Delete this exam?" = "Të fshihet ky provim?";
 "Past exams" = "Provimet e kaluara";
+"Due tomorrow: %@" = "Afati nesër: %@";
+"Due in %d hours: %@" = "Afati pas %d orësh: %@";

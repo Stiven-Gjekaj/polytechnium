@@ -32,14 +32,19 @@ public struct Reminder: Hashable, Sendable {
     public enum Kind: Hashable, Sendable {
         /// An exam in this number of days.
         case exam(days: Int)
+        /// A deadline on the next day.
+        case deadlineTomorrow
+        /// A deadline in this number of hours.
+        case deadlineSoon(hours: Int)
     }
 
     /// The same identifier for the same reminder, so that a new plan replaces the old one.
     public var id: String
     public var date: Date
     public var kind: Kind
-    /// The course of the exam.
+    /// The course of an exam, or the title of a deadline.
     public var title: String
+    /// The room of an exam, or the course of a deadline.
     public var place: String
 
     public init(id: String, date: Date, kind: Kind, title: String, place: String) {
@@ -60,7 +65,7 @@ public enum ReminderPlan {
     public static let limit = 60
 
     /// The reminders of the exams, after `now`, in order.
-    public static func reminders(exams: [Exam], after now: Date, calendar: Calendar = Week.calendar) -> [Reminder] {
+    public static func reminders(exams: [Exam], deadlines: [Deadline] = [], after now: Date, calendar: Calendar = Week.calendar) -> [Reminder] {
         var result: [Reminder] = []
         for exam in exams where exam.remind {
             let day = calendar.startOfDay(for: exam.date)
@@ -70,6 +75,13 @@ public enum ReminderPlan {
                 else { continue }
                 result.append(Reminder(id: "exam-\(exam.id)-\(days)", date: date, kind: .exam(days: days), title: exam.course, place: exam.room))
             }
+        }
+        for deadline in deadlines where deadline.remind && !deadline.done {
+            if let date = calendar.date(byAdding: .day, value: -1, to: deadline.due) {
+                result.append(Reminder(id: "deadline-\(deadline.id)-day", date: date, kind: .deadlineTomorrow, title: deadline.title, place: deadline.course))
+            }
+            let soon = deadline.due.addingTimeInterval(-2 * 3600)
+            result.append(Reminder(id: "deadline-\(deadline.id)-soon", date: soon, kind: .deadlineSoon(hours: 2), title: deadline.title, place: deadline.course))
         }
         return Array(result.filter { $0.date > now }.sorted { ($0.date, $0.id) < ($1.date, $1.id) }.prefix(limit))
     }

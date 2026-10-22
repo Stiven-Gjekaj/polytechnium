@@ -43,6 +43,8 @@
 "Delete this course?" = "Delete this course?";
 "Delete this exam?" = "Delete this exam?";
 "Done" = "Done";
+"Due in %d hours: %@" = "Due in %d hours: %@";
+"Due tomorrow: %@" = "Due tomorrow: %@";
 "End" = "End";
 "Even week" = "Even week";
 "Even weeks" = "Even weeks";
