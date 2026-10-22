@@ -1,0 +1,35 @@
+/* Written by scripts/strings.py from the keys in the code. Do not edit. */
+
+"About" = "About";
+"Class" = "Class";
+"Delete" = "Delete";
+"Delete the timetable" = "Delete the timetable";
+"Delete the timetable?" = "Delete the timetable?";
+"Even week" = "Even week";
+"Even weeks" = "Even weeks";
+"Every week" = "Every week";
+"Fault" = "Fault";
+"Group" = "Group";
+"Hide the font license" = "Hide the font license";
+"Lab" = "Lab";
+"Language" = "Language";
+"Language of the device" = "Language of the device";
+"Lecture" = "Lecture";
+"Licenses" = "Licenses";
+"OK" = "OK";
+"Odd week" = "Odd week";
+"Odd weeks" = "Odd weeks";
+"Polytechnium is for the students of the Polytechnic University of Tirana. It is not an app of the university. Your data stays on this device." = "Polytechnium is for the students of the Polytechnic University of Tirana. It is not an app of the university. Your data stays on this device.";
+"Seminar" = "Seminar";
+"Settings" = "Settings";
+"Show the font license" = "Show the font license";
+"Source code on GitHub" = "Source code on GitHub";
+"Support the project on Ko-fi" = "Support the project on Ko-fi";
+"The code is under the MIT License. Karla, the font of the app, is under the SIL Open Font License, Version 1.1." = "The code is under the MIT License. Karla, the font of the app, is under the SIL Open Font License, Version 1.1.";
+"The data file cannot be read: %@" = "The data file cannot be read: %@";
+"The data file cannot be written: %@" = "The data file cannot be written: %@";
+"The timetable writes tek for the odd weeks and cift for the even weeks. Choose the kind of this week, and the app counts the next weeks." = "The timetable writes tek for the odd weeks and cift for the even weeks. Choose the kind of this week, and the app counts the next weeks.";
+"This week" = "This week";
+"Timetable" = "Timetable";
+"Version" = "Version";
+"Weeks" = "Weeks";

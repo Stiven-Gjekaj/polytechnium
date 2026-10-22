@@ -1,0 +1,35 @@
+/* The Albanian text of the app. The key is the English text. */
+
+"About" = "Rreth aplikacionit";
+"Class" = "Orë";
+"Delete" = "Fshi";
+"Delete the timetable" = "Fshi orarin";
+"Delete the timetable?" = "Të fshihet orari?";
+"Even week" = "Javë çift";
+"Even weeks" = "Javët çift";
+"Every week" = "Çdo javë";
+"Fault" = "Gabim";
+"Group" = "Grupi";
+"Hide the font license" = "Fshih licencën e shkronjave";
+"Lab" = "Laborator";
+"Language" = "Gjuha";
+"Language of the device" = "Gjuha e pajisjes";
+"Lecture" = "Leksion";
+"Licenses" = "Licencat";
+"OK" = "OK";
+"Odd week" = "Javë tek";
+"Odd weeks" = "Javët tek";
+"Polytechnium is for the students of the Polytechnic University of Tirana. It is not an app of the university. Your data stays on this device." = "Polytechnium është për studentët e Universitetit Politeknik të Tiranës. Nuk është aplikacion i universitetit. Të dhënat e tua mbeten në këtë pajisje.";
+"Seminar" = "Seminar";
+"Settings" = "Cilësimet";
+"Show the font license" = "Shfaq licencën e shkronjave";
+"Source code on GitHub" = "Kodi burim në GitHub";
+"Support the project on Ko-fi" = "Mbështet projektin në Ko-fi";
+"The code is under the MIT License. Karla, the font of the app, is under the SIL Open Font License, Version 1.1." = "Kodi është nën licencën MIT. Karla, shkronjat e aplikacionit, janë nën SIL Open Font License, Version 1.1.";
+"The data file cannot be read: %@" = "Skedari i të dhënave nuk mund të lexohet: %@";
+"The data file cannot be written: %@" = "Skedari i të dhënave nuk mund të shkruhet: %@";
+"The timetable writes tek for the odd weeks and cift for the even weeks. Choose the kind of this week, and the app counts the next weeks." = "Orari shkruan tek për javët tek dhe çift për javët çift. Zgjidh llojin e kësaj jave dhe aplikacioni numëron javët e tjera.";
+"This week" = "Kjo javë";
+"Timetable" = "Orari";
+"Version" = "Versioni";
+"Weeks" = "Javët";
