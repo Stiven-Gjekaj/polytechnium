@@ -43,10 +43,12 @@ device.
   and the weeks: every week, the odd weeks (tek), or the even weeks (cift)
 - Change, add, and delete a class, when a class moves to a new time or room
 - Choose if this week is odd or even. The app counts the next weeks
+- Today: the class that is on now and the time that is left, the next
+  class, and the rest of the day
 - English or Albanian, or the language of the device
 
-The next releases add the Today screen, the widgets, the grade calculator,
-the exam countdown, and the deadlines. See [TODO.md](TODO.md).
+The next releases add the widgets, the grade calculator, the exam countdown,
+and the deadlines. See [TODO.md](TODO.md).
 
 ## Install
 

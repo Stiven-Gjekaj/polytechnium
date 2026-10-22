@@ -11,6 +11,13 @@ the decisions.
 A tag such as `v0.1.0` builds the unsigned IPA and attaches it to a release on
 GitHub as `Polytechnium.ipa`.
 
+## 0.2.0 (2026-10-22)
+
+- Adds the Today screen. It shows the class that is on now, with the room,
+  the lecturer, the kind, and the time that is left.
+- Today also shows the next class, when it starts, and the other classes of
+  the day. After the last class, the next class can be on another day.
+
 ## 0.1.0 (2026-10-22)
 
 - The first version of Polytechnium for iPhone and iPad.

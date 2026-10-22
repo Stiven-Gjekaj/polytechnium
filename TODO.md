@@ -7,11 +7,6 @@
 Each release adds one large function. A task leaves this list when its release
 is out. The reason for each choice is in [docs/decisions.md](docs/decisions.md).
 
-## 0.2.0: Today
-
-- The current class and the next class, with the room, the lecturer, and the
-  kind.
-
 ## 0.3.0: Widgets
 
 - "Next class" on the home screen and on the lock screen.
