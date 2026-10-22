@@ -11,6 +11,15 @@ the decisions.
 A tag such as `v0.1.0` builds the unsigned IPA and attaches it to a release on
 GitHub as `Polytechnium.ipa`.
 
+## 0.5.0 (2026-10-22)
+
+- Adds the Exams screen. Each exam has its course, its date and time, its
+  room, and a note. The screen shows the days that are left to each exam.
+- Reminds you at 18:00 one week, three days, and one day before an exam.
+  The reminder of an exam can be off.
+- The course of an exam comes from the timetable and the grades, or you
+  write it.
+
 ## 0.4.0 (2026-10-22)
 
 - Adds the Grades screen. Each course has its credits and the parts of its

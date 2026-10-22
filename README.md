@@ -49,10 +49,11 @@ device.
   the lock screen
 - Grades: the credit-weighted average on the scale from 4 to 10, and a
   what-if mode that gives the points that the final needs for a grade
+- Exams: the days that are left to each exam, and reminders one week,
+  three days, and one day before
 - English or Albanian, or the language of the device
 
-The next releases add the exam countdown and the deadlines. See
-[TODO.md](TODO.md).
+The next release adds the deadlines. See [TODO.md](TODO.md).
 
 ## Install
 
@@ -110,6 +111,7 @@ PolyCore/       the parts that do not need a screen, with their tests
     Import/     the reader of the timetable PDF
     Timetable/  the classes, the weeks, and the current and next class
     Grades/     the grades, the points that a grade needs, and the average
+    Planner/    the exams and the plan of the reminders
     Store/      the data file
 assets/brand/   the icon
 docs/           the reason behind each choice

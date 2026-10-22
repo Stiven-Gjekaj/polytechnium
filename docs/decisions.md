@@ -158,3 +158,14 @@ replaces an old one names the old one.
 - Reason: the owner asked for a credit-weighted average on the scale from 4
   to 10 and the points that the final needs for a grade. If the faculty uses
   another scale, the scale is one value in the data file.
+
+## 2026-10-22: The reminders of an exam
+
+- An exam has reminders at 18:00 one week, three days, and one day before.
+- The app asks for the permission to send notifications when you save the
+  first exam with reminders.
+- At each start and each change, the app removes its reminders and asks for
+  the reminders of the plan again. The plan keeps the first 60.
+- Reason: the owner asked for reminders a week, three days, and the day
+  before. An evening reminder gives time to revise. iOS keeps only 64 local
+  notifications of an app.
