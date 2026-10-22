@@ -1,6 +1,7 @@
 import Foundation
 import Observation
 import PolyCore
+import WidgetKit
 
 /// The data of the app, which each screen reads and changes.
 @MainActor @Observable
@@ -9,7 +10,10 @@ final class AppModel {
     /// The fault of the last read or write of the data file, for the user.
     var fault: String?
     var language: AppLanguage {
-        didSet { AppLanguage.chosen = language }
+        didSet {
+            AppLanguage.chosen = language
+            WidgetCenter.shared.reloadAllTimelines()
+        }
     }
 
     private let store: DataStore
@@ -35,6 +39,7 @@ final class AppModel {
         change(&data)
         do {
             try store.save(data)
+            WidgetCenter.shared.reloadAllTimelines()
         } catch {
             fault = tr("The data file cannot be written: %@", error.localizedDescription)
         }
