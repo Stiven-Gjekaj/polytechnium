@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 108 108">
+  <!-- Polytechnium mark in one colour, on a transparent background. -->
+  <defs>
+    <mask id="cut" maskUnits="userSpaceOnUse" x="0" y="0" width="108" height="108">
+      <polygon points="54.00,21.00 82.58,37.50 82.58,70.50 54.00,87.00 25.42,70.50 25.42,37.50" fill="white" stroke="white" stroke-width="7" stroke-linejoin="round"/>
+      <path d="M39 33H57A13.5 13.5 0 0 1 57 60H48.5V76H39Z" fill="black"/><rect x="48.5" y="40" width="5.2" height="5.2" rx="1" fill="white"/><rect x="54.8" y="40" width="5.2" height="5.2" rx="1" fill="white"/><rect x="48.5" y="46.3" width="5.2" height="5.2" rx="1" fill="white"/><rect x="54.8" y="46.3" width="5.2" height="5.2" rx="1" fill="white"/>
+    </mask>
+  </defs>
+  <rect width="108" height="108" fill="#e0e0e0" mask="url(#cut)"/>
+</svg>
