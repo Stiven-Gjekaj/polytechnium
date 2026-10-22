@@ -14,6 +14,8 @@ struct RootView: View {
                 .tabItem { Label(tr("Grades"), systemImage: "graduationcap") }
             ExamsScreen()
                 .tabItem { Label(tr("Exams"), systemImage: "hourglass") }
+            DeadlinesScreen()
+                .tabItem { Label(tr("Deadlines"), systemImage: "checklist") }
         }
         .polyScreen()
         .alert(tr("Fault"), isPresented: Binding(get: { app.fault != nil }, set: { if !$0 { app.fault = nil } })) {

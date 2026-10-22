@@ -128,6 +128,28 @@ final class AppModel {
         update { $0.exams.removeAll { $0.id == exam.id } }
     }
 
+    /// Adds a deadline, or changes the deadline with the same identifier.
+    func save(_ deadline: Deadline) {
+        update { data in
+            if let index = data.deadlines.firstIndex(where: { $0.id == deadline.id }) {
+                data.deadlines[index] = deadline
+            } else {
+                data.deadlines.append(deadline)
+            }
+            data.deadlines.sort { $0.due < $1.due }
+        }
+        if deadline.remind && !deadline.done {
+            Task {
+                await Notifications.requestPermission()
+                Notifications.reschedule(data)
+            }
+        }
+    }
+
+    func delete(_ deadline: Deadline) {
+        update { $0.deadlines.removeAll { $0.id == deadline.id } }
+    }
+
     /// The names of the courses of the timetable and of the grades, for a choice.
     var courseNames: [String] {
         var names = timetable?.courses ?? []
