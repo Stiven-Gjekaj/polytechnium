@@ -5,6 +5,7 @@ import SwiftUI
 struct TimetableScreen: View {
     @Environment(AppModel.self) private var app
     @State private var weekday = min(Week.weekday(of: .now), 5)
+    @State private var importing = false
     @State private var editing: ClassSession?
 
     var body: some View {
@@ -13,21 +14,26 @@ struct TimetableScreen: View {
                 if let timetable = app.timetable, !timetable.sessions.isEmpty {
                     content(timetable)
                 } else {
-                    EmptyMessage(text: tr("Add your classes one by one."), action: tr("Add a class")) {
-                        editing = newSession()
-                    }
+                    EmptyMessage(
+                        text: tr("Import the timetable PDF of the faculty, or add your classes one by one."),
+                        action: tr("Import a PDF")
+                    ) { importing = true }
                 }
             }
             .polyScreen()
             .navigationTitle(tr("Timetable"))
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
-                    Button { editing = newSession() } label: {
+                    Menu {
+                        Button(tr("Add a class"), systemImage: "plus") { editing = newSession() }
+                        Button(tr("Import a PDF"), systemImage: "doc") { importing = true }
+                    } label: {
                         Image(systemName: "plus")
-                            .accessibilityLabel(tr("Add a class"))
+                            .accessibilityLabel(tr("Add"))
                     }
                 }
             }
+            .sheet(isPresented: $importing) { ImportScreen() }
             .sheet(item: $editing) { session in ClassEditor(session: session) }
         }
     }

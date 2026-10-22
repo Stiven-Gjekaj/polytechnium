@@ -4,6 +4,7 @@ import SwiftUI
 /// The language, the weeks, the timetable, and the facts about the app.
 struct SettingsScreen: View {
     @Environment(AppModel.self) private var app
+    @State private var importing = false
     @State private var confirmClear = false
     @State private var showFontLicense = false
 
@@ -33,6 +34,7 @@ struct SettingsScreen: View {
                     if let group = app.timetable?.group, !group.isEmpty {
                         LabeledContent(tr("Group"), value: group)
                     }
+                    Button(tr("Import a PDF")) { importing = true }
                     if app.timetable != nil {
                         Button(tr("Delete the timetable"), role: .destructive) { confirmClear = true }
                             .foregroundStyle(Palette.danger)
@@ -68,6 +70,7 @@ struct SettingsScreen: View {
             .polyForm()
             .polyScreen()
             .navigationTitle(tr("Settings"))
+            .sheet(isPresented: $importing) { ImportScreen() }
             .confirmationDialog(tr("Delete the timetable?"), isPresented: $confirmClear, titleVisibility: .visible) {
                 Button(tr("Delete"), role: .destructive) { app.update { $0.timetable = nil } }
             }

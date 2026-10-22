@@ -1,9 +1,13 @@
 /* The Albanian text of the app. The key is the English text. */
 
+"%d classes" = "%d orë";
 "About" = "Rreth aplikacionit";
+"Add" = "Shto";
 "Add a class" = "Shto një orë";
 "Cancel" = "Anulo";
 "Change the class" = "Ndrysho orën";
+"Choose a PDF" = "Zgjidh një PDF";
+"Choose the timetable PDF of the faculty." = "Zgjidh PDF-në e orarit të fakultetit.";
 "Class" = "Orë";
 "Course" = "Lënda";
 "Day" = "Dita";
@@ -17,8 +21,13 @@
 "Even weeks" = "Javët çift";
 "Every week" = "Çdo javë";
 "Fault" = "Gabim";
+"Find a group, such as II-A-ELN" = "Gjej një grup, p.sh. II-A-ELN";
 "Group" = "Grupi";
+"Groups" = "Grupet";
 "Hide the font license" = "Fshih licencën e shkronjave";
+"Import a PDF" = "Importo një PDF";
+"Import a timetable" = "Importo një orar";
+"Import the timetable PDF of the faculty, or add your classes one by one." = "Importo PDF-në e orarit të fakultetit, ose shto orët një nga një.";
 "Kind" = "Lloji";
 "Lab" = "Laborator";
 "Language" = "Gjuha";
@@ -26,6 +35,7 @@
 "Lecture" = "Leksion";
 "Lecturer" = "Pedagogu";
 "Licenses" = "Licencat";
+"Look at the classes. You can change each class after you save." = "Shiko orët. Mund ta ndryshosh çdo orë pasi ta ruash.";
 "My classes" = "Orët e mia";
 "No classes on this day." = "Nuk ka orë në këtë ditë.";
 "Not on this week" = "Nuk është këtë javë";
@@ -34,6 +44,9 @@
 "Odd weeks" = "Javët tek";
 "Place" = "Vendi";
 "Polytechnium is for the students of the Polytechnic University of Tirana. It is not an app of the university. Your data stays on this device." = "Polytechnium është për studentët e Universitetit Politeknik të Tiranës. Nuk është aplikacion i universitetit. Të dhënat e tua mbeten në këtë pajisje.";
+"Reading the timetable" = "Po lexohet orari";
+"Replace" = "Zëvendëso";
+"Replace your timetable?" = "Të zëvendësohet orari yt?";
 "Room" = "Salla";
 "Room %@" = "Salla %@";
 "Save" = "Ruaj";
@@ -43,14 +56,16 @@
 "Source code on GitHub" = "Kodi burim në GitHub";
 "Start" = "Fillimi";
 "Support the project on Ko-fi" = "Mbështet projektin në Ko-fi";
+"The classes of this group take the place of your classes, also of the classes that you changed." = "Orët e këtij grupi zënë vendin e orëve të tua, edhe të atyre që ke ndryshuar.";
 "The code is under the MIT License. Karla, the font of the app, is under the SIL Open Font License, Version 1.1." = "Kodi është nën licencën MIT. Karla, shkronjat e aplikacionit, janë nën SIL Open Font License, Version 1.1.";
 "The data file cannot be read: %@" = "Skedari i të dhënave nuk mund të lexohet: %@";
 "The data file cannot be written: %@" = "Skedari i të dhënave nuk mund të shkruhet: %@";
 "The timetable writes tek for the odd weeks and cift for the even weeks. Choose the kind of this week, and the app counts the next weeks." = "Orari shkruan tek për javët tek dhe çift për javët çift. Zgjidh llojin e kësaj jave dhe aplikacioni numëron javët e tjera.";
+"This PDF has no timetable. The app reads the timetable of the faculty, with the hours in a column named ORA." = "Ky PDF nuk ka orar. Aplikacioni lexon orarin e fakultetit, me orët në një kolonë me emrin ORA.";
+"This file is not a PDF." = "Ky skedar nuk është PDF.";
 "This week" = "Kjo javë";
 "This week: %@" = "Kjo javë: %@";
 "Time" = "Koha";
 "Timetable" = "Orari";
 "Version" = "Versioni";
 "Weeks" = "Javët";
-"Add your classes one by one." = "Shto orët një nga një.";
