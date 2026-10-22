@@ -11,6 +11,16 @@ the decisions.
 A tag such as `v0.1.0` builds the unsigned IPA and attaches it to a release on
 GitHub as `Polytechnium.ipa`.
 
+## 0.6.0 (2026-10-22)
+
+- Adds the Deadlines screen for lab reports and assignments. Each deadline
+  has a title, a kind, a course, and a date and time of hand-in.
+- A check marks a deadline as handed in. A deadline that is late shows red.
+- Reminds you one day and two hours before each deadline that is not
+  handed in.
+- Settings opens from the gear button of Today, so that the five tabs are
+  Today, Timetable, Grades, Exams, and Deadlines.
+
 ## 0.5.0 (2026-10-22)
 
 - Adds the Exams screen. Each exam has its course, its date and time, its

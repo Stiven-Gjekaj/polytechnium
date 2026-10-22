@@ -169,3 +169,19 @@ replaces an old one names the old one.
 - Reason: the owner asked for reminders a week, three days, and the day
   before. An evening reminder gives time to revise. iOS keeps only 64 local
   notifications of an app.
+
+## 2026-10-22: The deadlines
+
+- A deadline has reminders one day and two hours before its time.
+- A deadline that is handed in has no reminders.
+- The exams and the deadlines share one plan of at most 60 reminders, in the
+  order of their time.
+- Reason: the owner asked for lab reports and assignments with local
+  notifications. Two hours give time to hand in.
+
+## 2026-10-22: Five tabs
+
+- The tabs are Today, Timetable, Grades, Exams, and Deadlines.
+- Settings opens from the gear button at the top of Today.
+- Reason: on an iPhone, a sixth tab goes behind a "More" tab. Settings is the
+  screen that a user opens least.

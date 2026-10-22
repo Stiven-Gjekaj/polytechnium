@@ -7,10 +7,6 @@
 Each release adds one large function. A task leaves this list when its release
 is out. The reason for each choice is in [docs/decisions.md](docs/decisions.md).
 
-## 0.6.0: Deadlines
-
-- Lab reports and assignments, with local notifications.
-
 ## 1.0.0
 
 - All the functions above, checked together on a real iPhone.
