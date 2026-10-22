@@ -11,6 +11,7 @@ public struct AppData: Codable, Hashable, Sendable {
     public var courses: [CourseGrade] = []
     /// The scale of the grades. Nil is the standard scale.
     public var scale: GradeScale?
+    public var exams: [Exam] = []
 
     public init(timetable: Timetable? = nil, week: Week? = nil, courses: [CourseGrade] = []) {
         self.timetable = timetable
@@ -26,7 +27,7 @@ public struct AppData: Codable, Hashable, Sendable {
     }
 
     enum CodingKeys: String, CodingKey {
-        case version, timetable, week, courses, scale
+        case version, timetable, week, courses, scale, exams
     }
 
     public init(from decoder: Decoder) throws {
@@ -36,6 +37,7 @@ public struct AppData: Codable, Hashable, Sendable {
         week = try container.decodeIfPresent(Week.self, forKey: .week)
         courses = try container.decodeIfPresent([CourseGrade].self, forKey: .courses) ?? []
         scale = try container.decodeIfPresent(GradeScale.self, forKey: .scale)
+        exams = try container.decodeIfPresent([Exam].self, forKey: .exams) ?? []
     }
 }
 
