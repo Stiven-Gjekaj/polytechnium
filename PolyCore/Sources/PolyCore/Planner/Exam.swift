@@ -42,6 +42,8 @@ public struct Reminder: Hashable, Sendable {
         case deadlineTomorrow
         /// A deadline in this number of hours.
         case deadlineSoon(hours: Int)
+        /// The revision of a day, with its hours.
+        case study(hours: Double)
     }
 
     /// The same identifier for the same reminder, so that a new plan replaces the old one.
@@ -71,7 +73,13 @@ public enum ReminderPlan {
     public static let limit = 60
 
     /// The reminders of the exams, after `now`, in order.
-    public static func reminders(exams: [Exam], deadlines: [Deadline] = [], after now: Date, calendar: Calendar = Week.calendar) -> [Reminder] {
+    /// The hour of the reminder of the revision of a day.
+    public static let studyHour = 17
+
+    public static func reminders(
+        exams: [Exam], deadlines: [Deadline] = [], study: StudyPlan? = nil,
+        after now: Date, calendar: Calendar = Week.calendar
+    ) -> [Reminder] {
         var result: [Reminder] = []
         for exam in exams where exam.remind {
             let day = calendar.startOfDay(for: exam.date)
@@ -88,6 +96,12 @@ public enum ReminderPlan {
             }
             let soon = deadline.due.addingTimeInterval(-2 * 3600)
             result.append(Reminder(id: "deadline-\(deadline.id)-soon", date: soon, kind: .deadlineSoon(hours: 2), title: deadline.title, place: deadline.course))
+        }
+        for (day, blocks) in Dictionary(grouping: study?.blocks ?? [], by: \.day) {
+            guard let date = calendar.date(bySettingHour: studyHour, minute: 0, second: 0, of: day) else { continue }
+            let hours = blocks.map(\.hours).reduce(0, +)
+            let courses = blocks.map(\.course).joined(separator: ", ")
+            result.append(Reminder(id: "study-\(day.timeIntervalSince1970)", date: date, kind: .study(hours: hours), title: courses, place: ""))
         }
         return Array(result.filter { $0.date > now }.sorted { ($0.date, $0.id) < ($1.date, $1.id) }.prefix(limit))
     }

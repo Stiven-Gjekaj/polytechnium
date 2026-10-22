@@ -11,7 +11,9 @@ enum Notifications {
     }
 
     static func reschedule(_ data: AppData) {
-        let reminders = ReminderPlan.reminders(exams: data.exams, deadlines: data.deadlines, after: .now)
+        let reminders = ReminderPlan.reminders(
+            exams: data.exams, deadlines: data.deadlines, study: data.studyPlan(at: .now), after: .now
+        )
         let center = UNUserNotificationCenter.current()
         center.removeAllPendingNotificationRequests()
         let calendar = Week.calendar
@@ -32,6 +34,7 @@ enum Notifications {
         case let .exam(days): tr("Exam in %d days: %@", days, reminder.title)
         case .deadlineTomorrow: tr("Due tomorrow: %@", reminder.title)
         case let .deadlineSoon(hours): tr("Due in %d hours: %@", hours, reminder.title)
+        case let .study(hours): tr("Revision today: %@ h", hours.formatted(.number.precision(.fractionLength(0...1)).locale(L10n.locale)))
         }
     }
 
@@ -39,6 +42,7 @@ enum Notifications {
         switch reminder.kind {
         case .exam: reminder.place.isEmpty ? tr("Good luck.") : tr("Room %@. Good luck.", reminder.place)
         case .deadlineTomorrow, .deadlineSoon: reminder.place
+        case .study: reminder.title
         }
     }
 }

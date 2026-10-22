@@ -158,6 +158,7 @@
 "Restore" = "Restore";
 "Restore a backup" = "Restore a backup";
 "Restore the backup?" = "Restore the backup?";
+"Revision today: %@ h" = "Revision today: %@ h";
 "Room" = "Room";
 "Room %@" = "Room %@";
 "Room %@. Good luck." = "Room %@. Good luck.";

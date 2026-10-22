@@ -34,3 +34,12 @@ private func data() -> AppData {
     #expect(data.unmarked(on: at(28, 12), calendar: calendar).map(\.session.course) == ["Matje Elektronike"])
 }
 
+@Test func eachDayOfRevisionHasAReminder() {
+    let exam = Exam(course: "Automatizim", date: at(30, 9), studyHours: 4)
+    let plan = StudyPlan(exams: [exam], done: [], now: at(27, 8), perDay: 3, days: 7, calendar: calendar)
+    let reminders = ReminderPlan.reminders(exams: [], study: plan, after: at(27, 8), calendar: calendar)
+    #expect(reminders.map(\.date) == [at(27, 17), at(28, 17), at(29, 17)])
+    #expect(reminders.map(\.kind).reduce(0.0) { sum, kind in
+        if case let .study(hours) = kind { return sum + hours } else { return sum }
+    } == 4)
+}

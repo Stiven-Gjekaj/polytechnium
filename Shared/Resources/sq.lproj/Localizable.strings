@@ -219,3 +219,4 @@
 "%@ h" = "%@ orë";
 "Hours of revision" = "Orët e përsëritjes";
 "The study plan spreads these hours over the days before the exam." = "Plani i studimit i shpërndan këto orë në ditët para provimit.";
+"Revision today: %@ h" = "Përsëritje sot: %@ orë";
