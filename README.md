@@ -47,10 +47,12 @@ device.
   class, and the rest of the day
 - Widgets: "Next class" with the room and the time, on the home screen and
   the lock screen
+- Grades: the credit-weighted average on the scale from 4 to 10, and a
+  what-if mode that gives the points that the final needs for a grade
 - English or Albanian, or the language of the device
 
-The next releases add the grade calculator, the exam countdown, and the
-deadlines. See [TODO.md](TODO.md).
+The next releases add the exam countdown and the deadlines. See
+[TODO.md](TODO.md).
 
 ## Install
 
@@ -107,6 +109,7 @@ PolyCore/       the parts that do not need a screen, with their tests
   Sources/PolyCore/
     Import/     the reader of the timetable PDF
     Timetable/  the classes, the weeks, and the current and next class
+    Grades/     the grades, the points that a grade needs, and the average
     Store/      the data file
 assets/brand/   the icon
 docs/           the reason behind each choice

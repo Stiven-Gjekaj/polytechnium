@@ -11,6 +11,19 @@ the decisions.
 A tag such as `v0.1.0` builds the unsigned IPA and attaches it to a release on
 GitHub as `Polytechnium.ipa`.
 
+## 0.4.0 (2026-10-22)
+
+- Adds the Grades screen. Each course has its credits and the parts of its
+  grade, such as the midterm, the labs, and the final, each with its weight.
+- Shows the average of the passed courses, weighted by their credits, on
+  the scale from 4 to 10.
+- The what-if mode gives the points that a part needs for a grade, such as
+  "You need 65 points on Final exam" for an 8.
+- Adds the courses of the timetable to the grades with one tap. Two forms
+  of the name of one course, such as "Analiza" and "Analize Numerike",
+  give one course.
+- A number pad has a Done button.
+
 ## 0.3.0 (2026-10-22)
 
 - Adds the Next class widget for the home screen and the lock screen. It

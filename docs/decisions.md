@@ -140,3 +140,21 @@ replaces an old one names the old one.
   app have one, the app moves the file into the folder of the group.
 - Reason: a build with no app group keeps the file in the documents. The
   widget cannot read the documents of the app.
+
+## 2026-10-22: The grades
+
+- Each part of a course has a weight in percent and points from 0 to 100.
+  The points of the course are the sum of each part in its share.
+- The points give the grade with the scale of the universities of Albania:
+  91 points give 10, 81 give 9, 71 give 8, 61 give 7, 51 give 6, and 41 give 5.
+  Less than 41 points gives 4.
+- When the weights do not give 100%, each part counts in its share of the sum.
+- A grade that the faculty gives takes the place of the grade from the points.
+- The average counts each passed course, with a grade of 5 or more, by its
+  credits. A failed course and a course with no grade are not in it.
+- The what-if mode gives the average that the parts with no points need for a
+  grade. It says when the points give the grade already, and when the grade is
+  not possible.
+- Reason: the owner asked for a credit-weighted average on the scale from 4
+  to 10 and the points that the final needs for a grade. If the faculty uses
+  another scale, the scale is one value in the data file.
