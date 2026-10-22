@@ -41,3 +41,21 @@ private func temporaryStore() -> DataStore {
     try Data("{".utf8).write(to: store.url)
     #expect(throws: (any Error).self) { try store.load() }
 }
+
+@Test func anOldFileMovesInWhenTheStoreHasNone() throws {
+    let store = temporaryStore()
+    let old = temporaryStore()
+    try old.save(AppData(timetable: Timetable(group: "II-A-ELN", sessions: [])))
+    store.moveIn(from: old.url)
+    #expect(try store.load().timetable?.group == "II-A-ELN")
+    #expect(!FileManager.default.fileExists(atPath: old.url.path))
+}
+
+@Test func anOldFileDoesNotReplaceANewOne() throws {
+    let store = temporaryStore()
+    let old = temporaryStore()
+    try store.save(AppData(timetable: Timetable(group: "II-B-ELN", sessions: [])))
+    try old.save(AppData(timetable: Timetable(group: "II-A-ELN", sessions: [])))
+    store.moveIn(from: old.url)
+    #expect(try store.load().timetable?.group == "II-B-ELN")
+}

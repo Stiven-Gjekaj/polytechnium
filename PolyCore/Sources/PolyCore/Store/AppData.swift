@@ -42,9 +42,25 @@ public struct DataStore: Sendable {
     /// The store in the shared folder of an app group, or in the documents of the
     /// app when the group is not available.
     public static func shared(group: String) -> DataStore {
-        let folder = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: group)
-            ?? FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-        return DataStore(url: folder.appendingPathComponent("polytechnium.json"))
+        let documents = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+            .appendingPathComponent(fileName)
+        guard let folder = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: group) else {
+            return DataStore(url: documents)
+        }
+        let store = DataStore(url: folder.appendingPathComponent(fileName))
+        store.moveIn(from: documents)
+        return store
+    }
+
+    static let fileName = "polytechnium.json"
+
+    /// Moves a data file from an older place, when this store has no file yet.
+    /// An install with no app group keeps the file in the documents of the app.
+    public func moveIn(from old: URL) {
+        let files = FileManager.default
+        guard !files.fileExists(atPath: url.path), files.fileExists(atPath: old.path) else { return }
+        try? files.createDirectory(at: url.deletingLastPathComponent(), withIntermediateDirectories: true)
+        try? files.moveItem(at: old, to: url)
     }
 
     /// The data on the disk. A missing file gives empty data.
