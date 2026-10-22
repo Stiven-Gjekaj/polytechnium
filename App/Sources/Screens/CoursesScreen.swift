@@ -41,6 +41,12 @@ private struct CourseCard: View {
                 Text(AttendanceText.line(summary))
                     .font(Karla.font(14))
                     .foregroundStyle(summary.canMiss < 0 ? Palette.danger : Palette.textSecondary)
+                let links = app.data.links.filter { $0.course == name }.count
+                if links > 0 {
+                    Text(links == 1 ? tr("1 quick link") : tr("%d quick links", links))
+                        .font(Karla.font(13))
+                        .foregroundStyle(Palette.textSecondary)
+                }
             }
             Spacer()
             Image(systemName: "chevron.right")

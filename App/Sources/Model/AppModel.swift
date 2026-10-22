@@ -173,6 +173,28 @@ final class AppModel {
         update { $0.requiredAttendance[course] = percent }
     }
 
+    /// Adds a quick link to a web page.
+    func addLink(_ title: String, url: URL, to course: String) {
+        update { $0.links.append(CourseLink(course: course, title: title, url: url.absoluteString)) }
+    }
+
+    /// Adds a quick link to a copy of a file.
+    func addFile(_ source: URL, to course: String) {
+        let id = UUID()
+        do {
+            let name = try LinkFiles.copy(source, id: id)
+            let title = source.deletingPathExtension().lastPathComponent
+            update { $0.links.append(CourseLink(id: id, course: course, title: title, fileName: name)) }
+        } catch {
+            fault = tr("The file cannot be copied: %@", error.localizedDescription)
+        }
+    }
+
+    func delete(_ link: CourseLink) {
+        LinkFiles.remove(link)
+        update { $0.links.removeAll { $0.id == link.id } }
+    }
+
     /// Puts the data of a backup in the place of all data.
     func restore(_ backup: AppData) {
         update { $0 = backup }

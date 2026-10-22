@@ -7,6 +7,8 @@
 "%d h %d min left" = "%d h %d min left";
 "%d h left" = "%d h left";
 "%d min left" = "%d min left";
+"%d quick links" = "%d quick links";
+"1 quick link" = "1 quick link";
 "A %d is not possible." = "A %d is not possible.";
 "A %d is not possible. The best grade that is possible is %d." = "A %d is not possible. The best grade that is possible is %d.";
 "A course counts when it has a grade of 5 or more and its credits." = "A course counts when it has a grade of 5 or more and its credits.";
@@ -16,13 +18,16 @@
 "Add a class" = "Add a class";
 "Add a course" = "Add a course";
 "Add a deadline" = "Add a deadline";
+"Add a file" = "Add a file";
 "Add a part" = "Add a part";
+"Add a web link" = "Add a web link";
 "Add an exam" = "Add an exam";
 "Add the courses of the timetable" = "Add the courses of the timetable";
 "Add the exams of the session. The app counts the days and reminds you one week, three days, and one day before." = "Add the exams of the session. The app counts the days and reminds you one week, three days, and one day before.";
 "Add the parts of the grade first." = "Add the parts of the grade first.";
 "Add your courses with their credits and the weight of each part, such as the midterm, the labs, and the final." = "Add your courses with their credits and the weight of each part, such as the midterm, the labs, and the final.";
 "Add your lab reports and assignments. The app reminds you one day and two hours before each one." = "Add your lab reports and assignments. The app reminds you one day and two hours before each one.";
+"Address" = "Address";
 "Assignment" = "Assignment";
 "At %d of %d classes" = "At %d of %d classes";
 "At 18:00 one week, three days, and one day before the exam." = "At 18:00 one week, three days, and one day before the exam.";
@@ -122,6 +127,7 @@
 "Not done" = "Not done";
 "Not on this week" = "Not on this week";
 "Note" = "Note";
+"Notes, PDFs, and lab sheets. A file stays on this device and is not in the backup." = "Notes, PDFs, and lab sheets. A file stays on this device and is not in the backup.";
 "Nothing to hand in." = "Nothing to hand in.";
 "Now" = "Now";
 "OK" = "OK";
@@ -135,6 +141,7 @@
 "Place" = "Place";
 "Points" = "Points";
 "Polytechnium is for the students of the Polytechnic University of Tirana. It is not an app of the university. Your data stays on this device. The app asks GitHub for the newest version." = "Polytechnium is for the students of the Polytechnic University of Tirana. It is not an app of the university. Your data stays on this device. The app asks GitHub for the newest version.";
+"Quick links" = "Quick links";
 "Reading the timetable" = "Reading the timetable";
 "Reminders" = "Reminders";
 "Reminders are on" = "Reminders are on";
@@ -163,6 +170,7 @@
 "The data file cannot be read: %@" = "The data file cannot be read: %@";
 "The data file cannot be written: %@" = "The data file cannot be written: %@";
 "The data of the backup takes the place of all data in the app." = "The data of the backup takes the place of all data in the app.";
+"The file cannot be copied: %@" = "The file cannot be copied: %@";
 "The timetable has no class of this course." = "The timetable has no class of this course.";
 "The timetable writes tek for the odd weeks and cift for the even weeks. Choose the kind of this week, and the app counts the next weeks." = "The timetable writes tek for the odd weeks and cift for the even weeks. Choose the kind of this week, and the app counts the next weeks.";
 "The weights give %@%%, not 100%%. The app counts each part in its share." = "The weights give %@%%, not 100%%. The app counts each part in its share.";
@@ -177,6 +185,7 @@
 "Time of the class that is over" = "Time of the class that is over";
 "Timetable" = "Timetable";
 "Title, such as Lab report 3" = "Title, such as Lab report 3";
+"Title, such as Moodle" = "Title, such as Moodle";
 "Today" = "Today";
 "Today, %@" = "Today, %@";
 "Tomorrow" = "Tomorrow";

@@ -1,16 +1,22 @@
 import PolyCore
+import QuickLook
 import SwiftUI
 
-/// The page of one course: its attendance.
+/// The page of one course: its quick links and its attendance.
 struct CourseScreen: View {
     @Environment(AppModel.self) private var app
     let course: String
     @State private var date = Date.now
     @State private var kind: SessionKind = .seminar
+    @State private var addingLink = false
+    @State private var addingFile = false
+    @State private var preview: URL?
+    @Environment(\.openURL) private var openURL
 
     var body: some View {
         let summary = app.data.attendanceSummary(for: course)
         Form {
+            links
             Section {
                 VStack(alignment: .leading, spacing: 6) {
                     Text(summary.rate.map { $0.formatted(.percent.precision(.fractionLength(0)).locale(L10n.locale)) } ?? "-")
@@ -67,11 +73,84 @@ struct CourseScreen: View {
         .navigationTitle(course)
         .navigationBarTitleDisplayMode(.inline)
         .onAppear { kind = Self.likelyKind(of: course, in: app.timetable) }
+        .sheet(isPresented: $addingLink) { LinkEditor(course: course) }
+        .fileImporter(isPresented: $addingFile, allowedContentTypes: [.item]) { result in
+            if case let .success(url) = result { app.addFile(url, to: course) }
+        }
+        .quickLookPreview($preview)
+    }
+
+    /// The quick links of the course, with the buttons that add one.
+    private var links: some View {
+        let own = app.data.links.filter { $0.course == course }
+        return Section {
+            ForEach(own) { link in
+                Button { open(link) } label: {
+                    Label(link.title, systemImage: link.isFile ? "doc.text" : "globe")
+                        .foregroundStyle(Palette.textPrimary)
+                }
+            }
+            .onDelete { offsets in offsets.map { own[$0] }.forEach(app.delete) }
+            Button(tr("Add a web link"), systemImage: "link") { addingLink = true }
+            Button(tr("Add a file"), systemImage: "doc.badge.plus") { addingFile = true }
+        } header: {
+            Text(tr("Quick links"))
+        } footer: {
+            Text(tr("Notes, PDFs, and lab sheets. A file stays on this device and is not in the backup."))
+        }
+    }
+
+    private func open(_ link: CourseLink) {
+        if let file = LinkFiles.url(of: link) {
+            preview = file
+        } else if let address = link.url, let url = URL(string: address) {
+            openURL(url)
+        }
     }
 
     /// The kind of the most classes of the course, such as a seminar.
     static func likelyKind(of course: String, in timetable: Timetable?) -> SessionKind {
         let kinds = (timetable?.sessions ?? []).filter { $0.course == course }.map(\.kind)
         return Dictionary(kinds.map { ($0, 1) }, uniquingKeysWith: +).max { $0.value < $1.value }?.key ?? .seminar
+    }
+}
+
+/// Adds a quick link to a web page.
+private struct LinkEditor: View {
+    @Environment(AppModel.self) private var app
+    @Environment(\.dismiss) private var dismiss
+    let course: String
+    @State private var title = ""
+    @State private var address = ""
+
+    var body: some View {
+        NavigationStack {
+            Form {
+                TextField(tr("Title, such as Moodle"), text: $title)
+                TextField(tr("Address"), text: $address)
+                    .keyboardType(.URL)
+                    .textInputAutocapitalization(.never)
+                    .autocorrectionDisabled()
+            }
+            .polyForm()
+            .polyScreen()
+            .navigationTitle(tr("Add a web link"))
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .cancellationAction) {
+                    Button(tr("Cancel")) { dismiss() }
+                }
+                ToolbarItem(placement: .confirmationAction) {
+                    Button(tr("Save")) {
+                        guard let url = CourseLink.webAddress(address) else { return }
+                        let name = title.trimmingCharacters(in: .whitespacesAndNewlines)
+                        app.addLink(name.isEmpty ? (url.host ?? url.absoluteString) : name, url: url, to: course)
+                        dismiss()
+                    }
+                    .font(Karla.font(16, .bold))
+                    .disabled(CourseLink.webAddress(address) == nil)
+                }
+            }
+        }
     }
 }

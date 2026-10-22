@@ -201,3 +201,12 @@
 "Was there" = "Ishte aty";
 "Missed" = "Mungoi";
 "Weeks of classes" = "Javët e mësimit";
+"The file cannot be copied: %@" = "Skedari nuk mund të kopjohet: %@";
+"Add a web link" = "Shto një lidhje interneti";
+"Add a file" = "Shto një skedar";
+"Quick links" = "Lidhje të shpejta";
+"Notes, PDFs, and lab sheets. A file stays on this device and is not in the backup." = "Shënime, PDF dhe fletë laboratori. Një skedar mbetet në këtë pajisje dhe nuk është në kopjen rezervë.";
+"Title, such as Moodle" = "Titulli, p.sh. Moodle";
+"Address" = "Adresa";
+"1 quick link" = "1 lidhje e shpejtë";
+"%d quick links" = "%d lidhje të shpejta";
