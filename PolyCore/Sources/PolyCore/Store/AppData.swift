@@ -8,11 +8,17 @@ public struct AppData: Codable, Hashable, Sendable {
     public var version = AppData.currentVersion
     public var timetable: Timetable?
     public var week: Week?
+    public var courses: [CourseGrade] = []
+    /// The scale of the grades. Nil is the standard scale.
+    public var scale: GradeScale?
 
-    public init(timetable: Timetable? = nil, week: Week? = nil) {
+    public init(timetable: Timetable? = nil, week: Week? = nil, courses: [CourseGrade] = []) {
         self.timetable = timetable
         self.week = week
+        self.courses = courses
     }
+
+    public var gradeScale: GradeScale { scale ?? .standard }
 
     /// The week of the data, or a week that is odd from the Monday of `date`.
     public func weekOrDefault(at date: Date) -> Week {
@@ -20,7 +26,7 @@ public struct AppData: Codable, Hashable, Sendable {
     }
 
     enum CodingKeys: String, CodingKey {
-        case version, timetable, week
+        case version, timetable, week, courses, scale
     }
 
     public init(from decoder: Decoder) throws {
@@ -28,6 +34,8 @@ public struct AppData: Codable, Hashable, Sendable {
         version = try container.decodeIfPresent(Int.self, forKey: .version) ?? 1
         timetable = try container.decodeIfPresent(Timetable.self, forKey: .timetable)
         week = try container.decodeIfPresent(Week.self, forKey: .week)
+        courses = try container.decodeIfPresent([CourseGrade].self, forKey: .courses) ?? []
+        scale = try container.decodeIfPresent(GradeScale.self, forKey: .scale)
     }
 }
 

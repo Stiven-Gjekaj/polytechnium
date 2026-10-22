@@ -20,7 +20,8 @@ private func temporaryStore() -> DataStore {
         timetable: Timetable(group: "II-A-ELN", sessions: [
             ClassSession(course: "Automatizim", kind: .lecture, weekday: 3, start: 780, end: 960, room: "206", parity: .odd),
         ]),
-        week: Week(oddMonday: monday)
+        week: Week(oddMonday: monday),
+        courses: [CourseGrade(name: "Automatizim", credits: 6, components: [GradeComponent(name: "Final", weight: 100, score: 75)])]
     )
     try store.save(data)
     #expect(try store.load() == data)
@@ -33,6 +34,8 @@ private func temporaryStore() -> DataStore {
     let data = try store.load()
     #expect(data.version == 1)
     #expect(data.timetable?.group == "II-A-ELN")
+    #expect(data.courses.isEmpty)
+    #expect(data.gradeScale == .standard)
 }
 
 @Test func aBrokenFileGivesAnError() throws {
