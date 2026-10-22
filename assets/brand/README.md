@@ -4,7 +4,7 @@ This folder holds the app icon. It has the look of the ZettaStream icon.
 
 ## Design
 
-The mark is a bold geometric P. The mark carries a gradient from white to grey. The background is the dark app colour with a soft grey glow.
+The mark is a hexagon with round corners. A bold P is cut out of it. The hexagon stands for "poly", and the counter of the P is four cells of a timetable. The mark carries a gradient from white to grey. The background is the dark app colour with a soft grey glow.
 
 ## Colours
 
@@ -22,6 +22,7 @@ The mark is a bold geometric P. The mark carries a gradient from white to grey. 
 | --- | --- |
 | `icon-ios.svg` | The iOS app icon. It is square, with no clip, because iOS rounds the corners itself. `App/Resources/Assets.xcassets/AppIcon.appiconset/icon-1024.png` is its render at 1024x1024. |
 | `icon-full.svg` | The complete square icon with rounded corners. Use it for previews and the README. |
+| `icon-monochrome.svg` | The mark alone, in one grey, on a transparent background. |
 
 ## PNG renders
 
