@@ -6,6 +6,8 @@ struct RootView: View {
 
     var body: some View {
         TabView {
+            TimetableScreen()
+                .tabItem { Label(tr("Timetable"), systemImage: "calendar") }
             SettingsScreen()
                 .tabItem { Label(tr("Settings"), systemImage: "gearshape") }
         }
