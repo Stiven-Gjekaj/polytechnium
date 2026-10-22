@@ -13,6 +13,11 @@ public struct AppData: Codable, Hashable, Sendable {
     public var scale: GradeScale?
     public var exams: [Exam] = []
     public var deadlines: [Deadline] = []
+    public var attendance: [AttendanceMark] = []
+    /// The part of the classes that the student must be at, in percent, for each course.
+    public var requiredAttendance: [String: Double] = [:]
+    /// The weeks of classes in the semester. Nil is 15.
+    public var semesterWeeks: Int?
 
     public init(timetable: Timetable? = nil, week: Week? = nil, courses: [CourseGrade] = []) {
         self.timetable = timetable
@@ -22,13 +27,24 @@ public struct AppData: Codable, Hashable, Sendable {
 
     public var gradeScale: GradeScale { scale ?? .standard }
 
+    /// The weeks of classes in the semester.
+    public var weeks: Int { semesterWeeks ?? 15 }
+
+    /// The attendance of one course.
+    public func attendanceSummary(for course: String) -> AttendanceSummary {
+        AttendanceSummary(
+            course: course, marks: attendance, timetable: timetable, weeks: weeks,
+            required: requiredAttendance[course] ?? AttendanceSummary.defaultRequired
+        )
+    }
+
     /// The week of the data, or a week that is odd from the Monday of `date`.
     public func weekOrDefault(at date: Date) -> Week {
         week ?? Week(oddMonday: Week.monday(of: date))
     }
 
     enum CodingKeys: String, CodingKey {
-        case version, timetable, week, courses, scale, exams, deadlines
+        case version, timetable, week, courses, scale, exams, deadlines, attendance, requiredAttendance, semesterWeeks
     }
 
     public init(from decoder: Decoder) throws {
@@ -40,6 +56,9 @@ public struct AppData: Codable, Hashable, Sendable {
         scale = try container.decodeIfPresent(GradeScale.self, forKey: .scale)
         exams = try container.decodeIfPresent([Exam].self, forKey: .exams) ?? []
         deadlines = try container.decodeIfPresent([Deadline].self, forKey: .deadlines) ?? []
+        attendance = try container.decodeIfPresent([AttendanceMark].self, forKey: .attendance) ?? []
+        requiredAttendance = try container.decodeIfPresent([String: Double].self, forKey: .requiredAttendance) ?? [:]
+        semesterWeeks = try container.decodeIfPresent(Int.self, forKey: .semesterWeeks)
     }
 }
 
