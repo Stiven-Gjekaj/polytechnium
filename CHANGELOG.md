@@ -11,6 +11,17 @@ the decisions.
 A tag such as `v0.1.0` builds the unsigned IPA and attaches it to a release on
 GitHub as `Polytechnium.ipa`.
 
+## 1.1.0 (2026-10-22)
+
+- Adds the attendance tracker. The Courses button of Timetable opens a page
+  for each course.
+- Mark each class as attended or missed. The page shows the part of the
+  classes that you were at, and the classes that you can still miss.
+- The required part is 75% by default, and you can change it for each
+  course. The app counts the classes of the semester from the timetable,
+  with 15 weeks by default. Settings changes the weeks.
+- Two forms of the name of one course show one time in the lists of courses.
+
 ## 1.0.0 (2026-10-22)
 
 - The first full version, with the timetable, Today, the widget, the grades,

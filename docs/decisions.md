@@ -218,3 +218,23 @@ replaces an old one names the old one.
   Files app.
 - Reason: the owner asked for 1.0.0 with all the functions of the first list.
   The second list comes after 1.0.0.
+
+## 2026-10-22: Releases after 1.0.0
+
+- Each function of the second list has its own release: 1.1.0 the
+  attendance, 1.2.0 the quick links, and 1.3.0 the study planner.
+- 2.0.0 has all of them, with Today as the place that joins them.
+- Reason: the owner asked for a release for each function, up to 2.0.0.
+
+## 2026-10-22: The attendance
+
+- The student marks each class as attended or missed, on the page of the
+  course.
+- The classes of the semester come from the timetable: each class of a week
+  counts one time each week, and a class of the odd or the even weeks counts
+  in half of the weeks. The semester has 15 weeks by default.
+- The required part is 75% for each course by default. The student can
+  change it for each course.
+- Reason: the rule of attendance is not the same for each course, and the
+  PDF does not give it. The page tells the student how many classes are left
+  to miss.

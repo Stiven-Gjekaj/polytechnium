@@ -15,8 +15,7 @@ release is out. The reason for each choice is in
   - A reminder of an exam and of a deadline at its time.
   - The import of the timetable PDF from the Files app.
 
-## After 1.0.0
+## Next releases
 
-- An attendance tracker for each course.
 - Quick links to the notes, the PDFs, and the lab sheets of each course.
 - A study planner that spreads the revision over the days before each exam.
