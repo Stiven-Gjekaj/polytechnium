@@ -238,3 +238,14 @@ replaces an old one names the old one.
 - Reason: the rule of attendance is not the same for each course, and the
   PDF does not give it. The page tells the student how many classes are left
   to miss.
+
+## 2026-10-22: The quick links
+
+- A quick link is a web page or a file. The app copies a file into a folder
+  next to the data file, with a new name, so that two files with the same
+  name do not replace each other.
+- An address with no scheme gets "https://". The app takes only http and
+  https.
+- The backup has the web links, but not the files.
+- Reason: a link to Moodle or to a drive works on each device. A PDF can be
+  large, and the backup stays one small file.

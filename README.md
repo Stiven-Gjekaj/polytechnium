@@ -57,6 +57,7 @@ device.
   hours before
 - Coming up on Today: the next exam and the deadlines of the next 7 days
 - Attendance: mark each class, and see the classes that you can still miss
+- Quick links: the notes, the PDFs, and the lab sheets of each course
 - Back up and restore all data in one file
 - The app tells you when a newer version is available
 - English or Albanian, or the language of the device
@@ -120,7 +121,7 @@ PolyCore/       the parts that do not need a screen, with their tests
     Timetable/  the classes, the weeks, and the current and next class
     Grades/     the grades, the points that a grade needs, and the average
     Planner/    the exams, the deadlines, and the plan of the reminders
-    Courses/    the attendance of each course
+    Courses/    the attendance and the quick links of each course
     Store/      the data file
 assets/brand/   the icon
 docs/           the reason behind each choice

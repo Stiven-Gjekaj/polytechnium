@@ -11,6 +11,14 @@ the decisions.
 A tag such as `v0.1.0` builds the unsigned IPA and attaches it to a release on
 GitHub as `Polytechnium.ipa`.
 
+## 1.2.0 (2026-10-22)
+
+- Adds quick links on the page of each course: a web page, such as Moodle,
+  or a file, such as the notes, a PDF, or a lab sheet.
+- A file goes into the folder of the app and opens in Quick Look. The
+  backup has the web links, but not the files.
+- The list of courses shows the number of quick links of each course.
+
 ## 1.1.0 (2026-10-22)
 
 - Adds the attendance tracker. The Courses button of Timetable opens a page

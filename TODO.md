@@ -17,5 +17,4 @@ release is out. The reason for each choice is in
 
 ## Next releases
 
-- Quick links to the notes, the PDFs, and the lab sheets of each course.
 - A study planner that spreads the revision over the days before each exam.
