@@ -15,6 +15,11 @@ public struct AppData: Codable, Hashable, Sendable {
     public var deadlines: [Deadline] = []
     public var attendance: [AttendanceMark] = []
     public var links: [CourseLink] = []
+    public var studyDone: [StudyDone] = []
+    /// The most hours of revision on one day. Nil is the default.
+    public var studyHoursPerDay: Double?
+    /// The days of revision before an exam. Nil is the default.
+    public var studyDays: Int?
     /// The part of the classes that the student must be at, in percent, for each course.
     public var requiredAttendance: [String: Double] = [:]
     /// The weeks of classes in the semester. Nil is 15.
@@ -31,6 +36,14 @@ public struct AppData: Codable, Hashable, Sendable {
     /// The weeks of classes in the semester.
     public var weeks: Int { semesterWeeks ?? 15 }
 
+    /// The study plan of the exams from the day of `now`.
+    public func studyPlan(at now: Date) -> StudyPlan {
+        StudyPlan(
+            exams: exams, done: studyDone, now: now,
+            perDay: studyHoursPerDay ?? StudyPlan.defaultHoursPerDay, days: studyDays ?? StudyPlan.defaultDays
+        )
+    }
+
     /// The attendance of one course.
     public func attendanceSummary(for course: String) -> AttendanceSummary {
         AttendanceSummary(
@@ -45,7 +58,7 @@ public struct AppData: Codable, Hashable, Sendable {
     }
 
     enum CodingKeys: String, CodingKey {
-        case version, timetable, week, courses, scale, exams, deadlines, attendance, requiredAttendance, semesterWeeks, links
+        case version, timetable, week, courses, scale, exams, deadlines, attendance, requiredAttendance, semesterWeeks, links, studyDone, studyHoursPerDay, studyDays
     }
 
     public init(from decoder: Decoder) throws {
@@ -61,6 +74,9 @@ public struct AppData: Codable, Hashable, Sendable {
         requiredAttendance = try container.decodeIfPresent([String: Double].self, forKey: .requiredAttendance) ?? [:]
         semesterWeeks = try container.decodeIfPresent(Int.self, forKey: .semesterWeeks)
         links = try container.decodeIfPresent([CourseLink].self, forKey: .links) ?? []
+        studyDone = try container.decodeIfPresent([StudyDone].self, forKey: .studyDone) ?? []
+        studyHoursPerDay = try container.decodeIfPresent(Double.self, forKey: .studyHoursPerDay)
+        studyDays = try container.decodeIfPresent(Int.self, forKey: .studyDays)
     }
 }
 

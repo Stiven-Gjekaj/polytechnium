@@ -10,14 +10,20 @@ public struct Exam: Codable, Hashable, Identifiable, Sendable {
     public var note: String
     /// Reminders one week, three days, and one day before.
     public var remind: Bool
+    /// The hours of revision for the study plan. Nil is the default.
+    public var studyHours: Double?
 
-    public init(id: UUID = UUID(), course: String, date: Date, room: String = "", note: String = "", remind: Bool = true) {
+    public init(
+        id: UUID = UUID(), course: String, date: Date, room: String = "", note: String = "",
+        remind: Bool = true, studyHours: Double? = nil
+    ) {
         self.id = id
         self.course = course
         self.date = date
         self.room = room
         self.note = note
         self.remind = remind
+        self.studyHours = studyHours
     }
 
     /// The days from the day of `now` to the day of the exam. 0 is today, and
