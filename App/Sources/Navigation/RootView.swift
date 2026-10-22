@@ -12,6 +12,8 @@ struct RootView: View {
                 .tabItem { Label(tr("Timetable"), systemImage: "calendar") }
             GradesScreen()
                 .tabItem { Label(tr("Grades"), systemImage: "graduationcap") }
+            ExamsScreen()
+                .tabItem { Label(tr("Exams"), systemImage: "hourglass") }
             SettingsScreen()
                 .tabItem { Label(tr("Settings"), systemImage: "gearshape") }
         }

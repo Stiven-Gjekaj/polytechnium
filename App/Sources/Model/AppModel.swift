@@ -27,6 +27,8 @@ final class AppModel {
             data = AppData()
             fault = tr("The data file cannot be read: %@", error.localizedDescription)
         }
+        // A reminder in the past drops out, and the next ones come in.
+        Notifications.reschedule(data)
     }
 
     var timetable: Timetable? { data.timetable }
@@ -40,6 +42,7 @@ final class AppModel {
         do {
             try store.save(data)
             WidgetCenter.shared.reloadAllTimelines()
+            Notifications.reschedule(data)
         } catch {
             fault = tr("The data file cannot be written: %@", error.localizedDescription)
         }
@@ -100,6 +103,38 @@ final class AppModel {
                 ])
             }
         }
+    }
+
+    /// Adds an exam, or changes the exam with the same identifier.
+    func save(_ exam: Exam) {
+        update { data in
+            if let index = data.exams.firstIndex(where: { $0.id == exam.id }) {
+                data.exams[index] = exam
+            } else {
+                data.exams.append(exam)
+            }
+            data.exams.sort { $0.date < $1.date }
+        }
+        if exam.remind {
+            // A reminder that the app asks for before the permission does not show.
+            Task {
+                await Notifications.requestPermission()
+                Notifications.reschedule(data)
+            }
+        }
+    }
+
+    func delete(_ exam: Exam) {
+        update { $0.exams.removeAll { $0.id == exam.id } }
+    }
+
+    /// The names of the courses of the timetable and of the grades, for a choice.
+    var courseNames: [String] {
+        var names = timetable?.courses ?? []
+        for course in data.courses.map(\.name) where !names.contains(course) {
+            names.append(course)
+        }
+        return names.sorted()
     }
 
     /// Makes the week of today odd or even.
