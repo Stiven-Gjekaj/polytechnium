@@ -66,8 +66,29 @@ struct TodayScreen: View {
                         .padding(.top, 6)
                     ForEach(today.later) { ClassRow(session: $0.session) }
                 }
+                comingUp(now: now)
             }
             .padding(gutter)
+        }
+    }
+
+    /// The next exam in 30 days, and the deadlines in the next 7 days that are not handed in.
+    @ViewBuilder
+    private func comingUp(now: Date) -> some View {
+        let exam = app.data.exams.first { (0...30).contains($0.daysLeft(from: now)) }
+        let week = now.addingTimeInterval(7 * 86400)
+        let deadlines = app.data.deadlines.filter { !$0.done && $0.due < week }
+        if exam != nil || !deadlines.isEmpty {
+            SectionTitle(text: tr("Coming up"))
+                .padding(.top, 6)
+            if let exam { ExamRow(exam: exam, now: now) }
+            ForEach(deadlines) { deadline in
+                DeadlineRow(deadline: deadline, now: now, open: {}) {
+                    var changed = deadline
+                    changed.done = true
+                    app.save(changed)
+                }
+            }
         }
     }
 
