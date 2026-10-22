@@ -11,6 +11,18 @@ the decisions.
 A tag such as `v0.1.0` builds the unsigned IPA and attaches it to a release on
 GitHub as `Polytechnium.ipa`.
 
+## 1.3.0 (2026-10-22)
+
+- Adds the study planner. The calendar button of Exams opens the plan of the
+  revision, day by day.
+- Each exam has its hours of revision, 10 by default. The plan spreads them
+  over the 7 days before the exam, with at most 3 hours each day. You can
+  change both numbers.
+- When two exams share days, the exam that comes first gets its hours first.
+  The plan tells you when the hours of an exam do not fit.
+- A check marks a block as done. The hours that you did count, and the plan
+  spreads the rest.
+
 ## 1.2.0 (2026-10-22)
 
 - Adds quick links on the page of each course: a web page, such as Moodle,

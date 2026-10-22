@@ -249,3 +249,16 @@ replaces an old one names the old one.
 - The backup has the web links, but not the files.
 - Reason: a link to Moodle or to a drive works on each device. A PDF can be
   large, and the backup stays one small file.
+
+## 2026-10-22: The study plan
+
+- An exam has its hours of revision, 10 by default. The revision starts 7
+  days before the exam and ends on the day before it. A day has at most 3
+  hours. The user can change the three numbers.
+- The exams come in the order of their dates. Each exam spreads its hours
+  over its days, in half hours, with no more than the free time of each day.
+  A second pass gives the hours that are left to the days with free time.
+- The hours that the user marked as done before today count. The plan of
+  today and the next days spreads the rest again each day.
+- Reason: an exam that comes first needs its revision first. A plan that
+  changes with the hours that are done stays true when a day goes wrong.

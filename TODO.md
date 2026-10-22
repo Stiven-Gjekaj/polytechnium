@@ -15,6 +15,7 @@ release is out. The reason for each choice is in
   - A reminder of an exam and of a deadline at its time.
   - The import of the timetable PDF from the Files app.
 
-## Next releases
+## 2.0.0
 
-- A study planner that spreads the revision over the days before each exam.
+- Today joins the functions: the revision of today, and a question about the
+  attendance of each class that is over.
