@@ -63,3 +63,13 @@ import Testing
     #expect(CellText("(S) 111") == nil)
     #expect(CellText("   ") == nil)
 }
+
+@Test func aNumberJoinedToTheCourseGetsASpace() {
+    #expect(CellText("(L) Elektroteknika2 L. Gjini 303")?.course == "Elektroteknika 2")
+}
+
+@Test func labInSmallLettersBeforeANumberIsTheKind() throws {
+    let cell = try #require(CellText("(S) Elektroteknika 2 L. Gjini lab 110"))
+    #expect(cell.kind == .lab)
+    #expect(cell.room == "110")
+}

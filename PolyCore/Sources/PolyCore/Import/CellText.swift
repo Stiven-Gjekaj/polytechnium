@@ -35,8 +35,8 @@ public struct CellText: Equatable, Sendable {
         while index < words.count {
             let word = words[index]
             let folded = Self.fold(word)
-            if folded == "lab", index + 1 < words.count, let room = Self.room(words[index + 1]) {
-                // "LAB 108" is a room, not the kind of the class.
+            if word == "LAB", index + 1 < words.count, let room = Self.room(words[index + 1]) {
+                // "LAB 108" in capitals is a room. "lab 110" is a lab in room 110.
                 rooms.append("LAB " + room)
                 index += 2
                 continue
@@ -57,7 +57,8 @@ public struct CellText: Equatable, Sendable {
 
         let (course, lecturer) = Self.splitLecturer(rest)
         guard !course.isEmpty else { return nil }
-        self.course = course
+        // "Elektroteknika2" is the same course as "Elektroteknika 2".
+        self.course = course.replacingOccurrences(of: #"(\p{L})(\d+)$"#, with: "$1 $2", options: .regularExpression)
         self.lecturer = lecturer
         room = rooms.joined(separator: ", ")
     }
