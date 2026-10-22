@@ -46,6 +46,17 @@ public struct AppData: Codable, Hashable, Sendable {
         )
     }
 
+    /// The classes of a day that are over and have no mark of attendance yet.
+    public func unmarked(on now: Date, calendar: Calendar = Week.calendar) -> [Occurrence] {
+        guard let timetable else { return [] }
+        return weekOrDefault(at: now).ended(in: timetable, on: now, calendar: calendar).filter { occurrence in
+            !attendance.contains {
+                $0.course == occurrence.session.course && $0.kind == occurrence.session.kind
+                    && calendar.isDate($0.date, inSameDayAs: occurrence.start)
+            }
+        }
+    }
+
     /// The attendance of one course.
     public func attendanceSummary(for course: String) -> AttendanceSummary {
         AttendanceSummary(
