@@ -4,6 +4,7 @@ import SwiftUI
 /// The class that is on now, the next class, and the rest of the day.
 struct TodayScreen: View {
     @Environment(AppModel.self) private var app
+    @State private var settings = false
 
     var body: some View {
         NavigationStack {
@@ -16,6 +17,15 @@ struct TodayScreen: View {
             }
             .polyScreen()
             .navigationTitle(tr("Today"))
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button { settings = true } label: {
+                        Image(systemName: "gearshape")
+                            .accessibilityLabel(tr("Settings"))
+                    }
+                }
+            }
+            .sheet(isPresented: $settings) { SettingsScreen() }
         }
     }
 
