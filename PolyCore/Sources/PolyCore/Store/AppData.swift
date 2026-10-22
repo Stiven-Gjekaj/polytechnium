@@ -3,7 +3,9 @@ import Foundation
 /// All data of the app, in one file that the app and the widgets share.
 public struct AppData: Codable, Hashable, Sendable {
     /// The form of the file. A newer form that an older app cannot read raises it.
-    public static let currentVersion = 1
+    ///
+    /// Form 2 adds the attendance, the quick links, and the study plan.
+    public static let currentVersion = 2
 
     public var version = AppData.currentVersion
     public var timetable: Timetable?
@@ -63,7 +65,8 @@ public struct AppData: Codable, Hashable, Sendable {
 
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        version = try container.decodeIfPresent(Int.self, forKey: .version) ?? 1
+        // The data of an older form reads into this form, and saves in it.
+        version = AppData.currentVersion
         timetable = try container.decodeIfPresent(Timetable.self, forKey: .timetable)
         week = try container.decodeIfPresent(Week.self, forKey: .week)
         courses = try container.decodeIfPresent([CourseGrade].self, forKey: .courses) ?? []

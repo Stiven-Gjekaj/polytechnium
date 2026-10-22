@@ -27,12 +27,12 @@ private func temporaryStore() -> DataStore {
     #expect(try store.load() == data)
 }
 
-@Test func aFileWithNoVersionReadsAsTheFirstForm() throws {
+@Test func aFileWithNoVersionReadsIntoTheCurrentForm() throws {
     let store = temporaryStore()
     try FileManager.default.createDirectory(at: store.url.deletingLastPathComponent(), withIntermediateDirectories: true)
     try Data(#"{"timetable":{"group":"II-A-ELN","sessions":[]}}"#.utf8).write(to: store.url)
     let data = try store.load()
-    #expect(data.version == 1)
+    #expect(data.version == AppData.currentVersion)
     #expect(data.timetable?.group == "II-A-ELN")
     #expect(data.courses.isEmpty)
     #expect(data.gradeScale == .standard)
