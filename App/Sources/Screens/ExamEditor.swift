@@ -14,6 +14,10 @@ struct ExamEditor: View {
         isNew = exam.course.isEmpty
     }
 
+    private var studyHours: Binding<Double> {
+        Binding(get: { exam.studyHours ?? StudyPlan.defaultHours }, set: { exam.studyHours = $0 })
+    }
+
     var body: some View {
         NavigationStack {
             Form {
@@ -28,6 +32,13 @@ struct ExamEditor: View {
                     DatePicker(tr("Date"), selection: $exam.date)
                     TextField(tr("Room"), text: $exam.room)
                     TextField(tr("Note"), text: $exam.note, axis: .vertical)
+                }
+                Section {
+                    Stepper(value: studyHours, in: 0...100, step: 1) {
+                        LabeledContent(tr("Hours of revision"), value: StudyPlanScreen.hours(exam.studyHours ?? StudyPlan.defaultHours))
+                    }
+                } footer: {
+                    Text(tr("The study plan spreads these hours over the days before the exam."))
                 }
                 Section {
                     Toggle(tr("Reminders"), isOn: $exam.remind)

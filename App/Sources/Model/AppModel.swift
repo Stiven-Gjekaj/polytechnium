@@ -195,6 +195,21 @@ final class AppModel {
         update { $0.links.removeAll { $0.id == link.id } }
     }
 
+    /// Marks the revision of a block as done, or as not done.
+    func toggle(_ block: StudyBlock) {
+        update { data in
+            if let index = data.studyDone.firstIndex(where: { $0.exam == block.exam && $0.day == block.day }) {
+                data.studyDone.remove(at: index)
+            } else {
+                data.studyDone.append(StudyDone(exam: block.exam, day: block.day, hours: block.hours))
+            }
+        }
+    }
+
+    func isDone(_ block: StudyBlock) -> Bool {
+        data.studyDone.contains { $0.exam == block.exam && $0.day == block.day }
+    }
+
     /// Puts the data of a backup in the place of all data.
     func restore(_ backup: AppData) {
         update { $0 = backup }

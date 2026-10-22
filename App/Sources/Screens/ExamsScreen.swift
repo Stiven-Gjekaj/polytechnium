@@ -21,6 +21,12 @@ struct ExamsScreen: View {
             .polyScreen()
             .navigationTitle(tr("Exams"))
             .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
+                    NavigationLink { StudyPlanScreen() } label: {
+                        Image(systemName: "calendar.badge.clock")
+                            .accessibilityLabel(tr("Study plan"))
+                    }
+                }
                 ToolbarItem(placement: .topBarTrailing) {
                     Button { editing = newExam() } label: {
                         Image(systemName: "plus")

@@ -210,3 +210,12 @@
 "Address" = "Adresa";
 "1 quick link" = "1 lidhje e shpejtë";
 "%d quick links" = "%d lidhje të shpejta";
+"Hours each day" = "Orë çdo ditë";
+"Days before an exam" = "Ditë para një provimi";
+"Each exam has its hours of revision in the exam. The exams that come first get their hours first." = "Çdo provim ka orët e veta të përsëritjes. Provimet që vijnë më parë marrin orët e tyre të parat.";
+"%@ hours of %@ do not fit. Start earlier, or study more each day." = "%@ orë të %@ nuk nxënë. Fillo më herët, ose studio më shumë çdo ditë.";
+"No revision to plan. Add an exam to come." = "Nuk ka përsëritje për të planifikuar. Shto një provim të ardhshëm.";
+"Study plan" = "Plani i studimit";
+"%@ h" = "%@ orë";
+"Hours of revision" = "Orët e përsëritjes";
+"The study plan spreads these hours over the days before the exam." = "Plani i studimit i shpërndan këto orë në ditët para provimit.";

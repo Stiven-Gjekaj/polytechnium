@@ -1,6 +1,8 @@
 /* Written by scripts/strings.py from the keys in the code. Do not edit. */
 
 "%@ credits" = "%@ credits";
+"%@ h" = "%@ h";
+"%@ hours of %@ do not fit. Start earlier, or study more each day." = "%@ hours of %@ do not fit. Start earlier, or study more each day.";
 "%@ of %@ points so far" = "%@ of %@ points so far";
 "%d classes" = "%d classes";
 "%d classes over the limit" = "%d classes over the limit";
@@ -47,6 +49,7 @@
 "Credits" = "Credits";
 "Date" = "Date";
 "Day" = "Day";
+"Days before an exam" = "Days before an exam";
 "Deadline" = "Deadline";
 "Deadlines" = "Deadlines";
 "Delete" = "Delete";
@@ -64,6 +67,7 @@
 "Due" = "Due";
 "Due in %d hours: %@" = "Due in %d hours: %@";
 "Due tomorrow: %@" = "Due tomorrow: %@";
+"Each exam has its hours of revision in the exam. The exams that come first get their hours first." = "Each exam has its hours of revision in the exam. The exams that come first get their hours first.";
 "End" = "End";
 "Even week" = "Even week";
 "Even weeks" = "Even weeks";
@@ -85,6 +89,8 @@
 "Groups" = "Groups";
 "Handed in" = "Handed in";
 "Hide the font license" = "Hide the font license";
+"Hours each day" = "Hours each day";
+"Hours of revision" = "Hours of revision";
 "I missed it" = "I missed it";
 "I was there" = "I was there";
 "Import a PDF" = "Import a PDF";
@@ -123,6 +129,7 @@
 "No classes on this day." = "No classes on this day.";
 "No exam to come." = "No exam to come.";
 "No marks yet" = "No marks yet";
+"No revision to plan. Add an exam to come." = "No revision to plan. Add an exam to come.";
 "No timetable" = "No timetable";
 "Not done" = "Not done";
 "Not on this week" = "Not on this week";
@@ -161,6 +168,7 @@
 "Show the font license" = "Show the font license";
 "Source code on GitHub" = "Source code on GitHub";
 "Start" = "Start";
+"Study plan" = "Study plan";
 "Support the project on Ko-fi" = "Support the project on Ko-fi";
 "The app counts %d classes of this course in %d weeks, from the timetable." = "The app counts %d classes of this course in %d weeks, from the timetable.";
 "The backup is one file with your timetable, grades, exams, and deadlines. Keep it in Files or in iCloud Drive." = "The backup is one file with your timetable, grades, exams, and deadlines. Keep it in Files or in iCloud Drive.";
@@ -171,6 +179,7 @@
 "The data file cannot be written: %@" = "The data file cannot be written: %@";
 "The data of the backup takes the place of all data in the app." = "The data of the backup takes the place of all data in the app.";
 "The file cannot be copied: %@" = "The file cannot be copied: %@";
+"The study plan spreads these hours over the days before the exam." = "The study plan spreads these hours over the days before the exam.";
 "The timetable has no class of this course." = "The timetable has no class of this course.";
 "The timetable writes tek for the odd weeks and cift for the even weeks. Choose the kind of this week, and the app counts the next weeks." = "The timetable writes tek for the odd weeks and cift for the even weeks. Choose the kind of this week, and the app counts the next weeks.";
 "The weights give %@%%, not 100%%. The app counts each part in its share." = "The weights give %@%%, not 100%%. The app counts each part in its share.";
