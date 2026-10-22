@@ -11,6 +11,15 @@ the decisions.
 A tag such as `v0.1.0` builds the unsigned IPA and attaches it to a release on
 GitHub as `Polytechnium.ipa`.
 
+## 0.3.0 (2026-10-22)
+
+- Adds the Next class widget for the home screen and the lock screen. It
+  shows the class that is on, or the next class, with the room and the time.
+  The medium size also shows the class after it.
+- The widget changes at the start and the end of each class.
+- The data file moves into the folder of the app group, which the app and
+  the widget share.
+
 ## 0.2.0 (2026-10-22)
 
 - Adds the Today screen. It shows the class that is on now, with the room,

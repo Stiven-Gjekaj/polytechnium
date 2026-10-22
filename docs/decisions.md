@@ -119,3 +119,24 @@ replaces an old one names the old one.
   when the file is there. The folder is not in the repository.
 - Reason: the real PDF is a draft of the faculty with the names of the
   lecturers. A test must build its own state.
+
+## 2026-10-22: The widget
+
+- One widget, "Next class", has five sizes: small and medium on the home
+  screen, and rectangular, inline, and circular on the lock screen.
+- It shows the class that is on, or else the next class. The medium size also
+  shows the class after it.
+- The timeline has an entry at each start and end of a class in the next day,
+  so that the widget changes with no request to the app.
+- The widget reads the data file in the folder of the app group.
+- A simulator build signs with no identity, so that the app group works in
+  the simulator too.
+- Reason: the owner asked for "Next class: Elektroteknika II, room X, 10:00"
+  on the home screen and the lock screen.
+
+## 2026-10-22: The data file moves into the app group
+
+- When the folder of the app group has no data file and the documents of the
+  app have one, the app moves the file into the folder of the group.
+- Reason: a build with no app group keeps the file in the documents. The
+  widget cannot read the documents of the app.

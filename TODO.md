@@ -7,10 +7,6 @@
 Each release adds one large function. A task leaves this list when its release
 is out. The reason for each choice is in [docs/decisions.md](docs/decisions.md).
 
-## 0.3.0: Widgets
-
-- "Next class" on the home screen and on the lock screen.
-
 ## 0.4.0: Grades
 
 - The credit-weighted average on the scale from 4 to 10.

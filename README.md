@@ -45,10 +45,12 @@ device.
 - Choose if this week is odd or even. The app counts the next weeks
 - Today: the class that is on now and the time that is left, the next
   class, and the rest of the day
+- Widgets: "Next class" with the room and the time, on the home screen and
+  the lock screen
 - English or Albanian, or the language of the device
 
-The next releases add the widgets, the grade calculator, the exam countdown,
-and the deadlines. See [TODO.md](TODO.md).
+The next releases add the grade calculator, the exam countdown, and the
+deadlines. See [TODO.md](TODO.md).
 
 ## Install
 
@@ -68,6 +70,10 @@ it with one of these tools:
 - [Sideloadly](https://sideloadly.io)
 - [TrollStore](https://github.com/opa334/TrollStore), on a version of iOS
   that it supports
+
+The widgets need the app group of the app. AltStore and SideStore register
+it. With a free Apple account, the widget extension uses one more of the
+three app IDs of the week.
 
 The newest IPA is always at this URL:
 
@@ -95,6 +101,7 @@ App/Sources/
   Screens/      the screens
   Components/   the buttons, the chips, and the other parts of a screen
   Theme/        the colours and the font, from ZettaStream
+Widgets/        the widget extension
 Shared/         the code and the text that the app and the widgets share
 PolyCore/       the parts that do not need a screen, with their tests
   Sources/PolyCore/
