@@ -40,3 +40,35 @@ private func expectTheClasses(of grid: TimetableGrid) {
 @Test func theGridReadsTheCellsFromTheBorders() {
     expectTheClasses(of: TimetableGrid(rects: drawing.borders, glyphs: drawing.glyphs))
 }
+
+@Test func aPDFOfTheTimetableGivesTheSameClasses() throws {
+    expectTheClasses(of: try TimetablePDF.read(drawing.pdf))
+}
+
+@Test func dataThatIsNotAPDFFails() {
+    #expect(throws: TimetablePDF.Failure.notAPDF) { try TimetablePDF.read(Data("timetable".utf8)) }
+}
+
+@Test func aPDFWithNoTimetableFails() {
+    let empty = TimetableDrawing(classes: [])
+    #expect(throws: TimetablePDF.Failure.noTimetable) { try TimetablePDF.read(empty.pdf) }
+}
+
+/// The real timetable of the faculty, when a copy is in `private/`. The file is
+/// not in the repository, so the test does nothing on another machine.
+@Test func theRealTimetableGivesTheClassesOfELN2A() throws {
+    let url = URL(fileURLWithPath: #filePath)
+        .deletingLastPathComponent().deletingLastPathComponent().deletingLastPathComponent().deletingLastPathComponent()
+        .appendingPathComponent("private/Orari-Bachelor-4.pdf")
+    guard let data = try? Data(contentsOf: url) else { return }
+    let grid = try TimetablePDF.read(data)
+    #expect(grid.groups.contains("II-A-ELN"))
+    let classes = grid.timetable(for: "II-A-ELN").sessions
+    let monday = classes.filter { $0.weekday == 1 }
+    #expect(monday.map(\.course) == ["Analiza Numerike", "Teoria e Sinjaleve"])
+    #expect(monday.last.map { [$0.start, $0.end] } == [960, 1140])
+    let wednesday = classes.first { $0.weekday == 3 && $0.course == "Matje Elektronike" }
+    #expect(wednesday.map { [$0.start, $0.end] } == [480, 660])
+    #expect(wednesday?.room == "204")
+    #expect(wednesday?.lecturer == "A. Lala")
+}
