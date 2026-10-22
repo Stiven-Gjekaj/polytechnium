@@ -159,6 +159,11 @@ final class AppModel {
         return names.sorted()
     }
 
+    /// Puts the data of a backup in the place of all data.
+    func restore(_ backup: AppData) {
+        update { $0 = backup }
+    }
+
     /// Makes the week of today odd or even.
     func setThisWeek(_ parity: WeekParity) {
         update { $0.week = Week.with(parity, at: .now) }

@@ -1,5 +1,6 @@
 import PolyCore
 import SwiftUI
+import UniformTypeIdentifiers
 
 /// The language, the weeks, the timetable, and the facts about the app.
 struct SettingsScreen: View {
@@ -9,6 +10,10 @@ struct SettingsScreen: View {
     @State private var confirmClear = false
     @State private var showFontLicense = false
     @State private var newer: String?
+    @State private var exporting: BackupFile?
+    @State private var restoring = false
+    @State private var pending: AppData?
+    @State private var backupFault: String?
 
     var body: some View {
         @Bindable var app = app
@@ -41,6 +46,16 @@ struct SettingsScreen: View {
                         Button(tr("Delete the timetable"), role: .destructive) { confirmClear = true }
                             .foregroundStyle(Palette.danger)
                     }
+                }
+                Section {
+                    Button(tr("Save a backup")) {
+                        if let data = try? app.data.backup() { exporting = BackupFile(data: data) }
+                    }
+                    Button(tr("Restore a backup")) { restoring = true }
+                } header: {
+                    Text(tr("Backup"))
+                } footer: {
+                    Text(tr("The backup is one file with your timetable, grades, exams, and deadlines. Keep it in Files or in iCloud Drive."))
                 }
                 Section {
                     if let newer {
@@ -86,6 +101,41 @@ struct SettingsScreen: View {
             }
             .sheet(isPresented: $importing) { ImportScreen() }
             .task { newer = await UpdateCheck.newerVersion() }
+            .fileExporter(
+                isPresented: Binding(get: { exporting != nil }, set: { if !$0 { exporting = nil } }),
+                document: exporting,
+                contentType: .json,
+                defaultFilename: "Polytechnium " + Date.now.formatted(.iso8601.year().month().day())
+            ) { _ in exporting = nil }
+            .fileImporter(isPresented: $restoring, allowedContentTypes: [.json]) { result in
+                guard case let .success(url) = result else { return }
+                let access = url.startAccessingSecurityScopedResource()
+                defer { if access { url.stopAccessingSecurityScopedResource() } }
+                do {
+                    pending = try AppData.restore(Data(contentsOf: url))
+                } catch AppData.BackupFailure.tooNew {
+                    backupFault = tr("A newer version of the app made this backup. Update the app first.")
+                } catch {
+                    backupFault = tr("This file is not a backup of Polytechnium.")
+                }
+            }
+            .confirmationDialog(
+                tr("Restore the backup?"),
+                isPresented: Binding(get: { pending != nil }, set: { if !$0 { pending = nil } }),
+                titleVisibility: .visible
+            ) {
+                Button(tr("Restore"), role: .destructive) {
+                    if let pending { app.restore(pending) }
+                    pending = nil
+                }
+            } message: {
+                Text(tr("The data of the backup takes the place of all data in the app."))
+            }
+            .alert(tr("Fault"), isPresented: Binding(get: { backupFault != nil }, set: { if !$0 { backupFault = nil } })) {
+                Button(tr("OK")) { backupFault = nil }
+            } message: {
+                Text(backupFault ?? "")
+            }
             .confirmationDialog(tr("Delete the timetable?"), isPresented: $confirmClear, titleVisibility: .visible) {
                 Button(tr("Delete"), role: .destructive) { app.update { $0.timetable = nil } }
             }

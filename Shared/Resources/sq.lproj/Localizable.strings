@@ -172,5 +172,14 @@
 "Due tomorrow: %@" = "Afati nesër: %@";
 "Due in %d hours: %@" = "Afati pas %d orësh: %@";
 "Tomorrow" = "Nesër";
+"Save a backup" = "Ruaj një kopje rezervë";
+"Restore a backup" = "Rikthe një kopje rezervë";
+"Backup" = "Kopja rezervë";
+"The backup is one file with your timetable, grades, exams, and deadlines. Keep it in Files or in iCloud Drive." = "Kopja rezervë është një skedar me orarin, notat, provimet dhe afatet e tua. Ruaje te Files ose në iCloud Drive.";
 "Version %@ is available" = "Versioni %@ është i disponueshëm";
+"A newer version of the app made this backup. Update the app first." = "Këtë kopje e ka bërë një version më i ri i aplikacionit. Përditëso më parë aplikacionin.";
+"This file is not a backup of Polytechnium." = "Ky skedar nuk është kopje rezervë e Polytechnium.";
+"Restore the backup?" = "Të rikthehet kopja rezervë?";
+"Restore" = "Rikthe";
+"The data of the backup takes the place of all data in the app." = "Të dhënat e kopjes zënë vendin e të gjitha të dhënave në aplikacion.";
 "Coming up" = "Së shpejti";
